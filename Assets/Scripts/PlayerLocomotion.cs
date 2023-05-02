@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Description:
+This script handles all the movements of the charecter,
+processes the inputs and converts them into charecter movement.
+*/
+
 public class PlayerLocomotion : MonoBehaviour
 {
     InputManager inputManager;
@@ -24,7 +30,7 @@ public class PlayerLocomotion : MonoBehaviour
         HandleMovement();
         HandleRotation();
     }
-    private void HandleMovement()
+    private void HandleMovement() // Handles the movement of the player.
     {
         moveDirection = cameraObject.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
@@ -36,7 +42,8 @@ public class PlayerLocomotion : MonoBehaviour
         playerRigidbody.velocity = movementVelocity;
     }
 
-    private void HandleRotation()
+    private void HandleRotation() // Handles the rotation of the player, player should correctly face the direction they are
+                                 // moving towards.
     {
         Vector3 targetDirection = Vector3.zero;
 

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Description:
+This script deals with the camera that follows the character.
+The camera currently maintains the the same direction all the time while the character rotates freely.
+*/
+
 public class CameraManager : MonoBehaviour
 {
     public Transform targetTransform; //object camera will follow.
