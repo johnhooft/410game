@@ -11,11 +11,17 @@ and converts those inputs into vertical input and horizontal input.
 public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
+    PlayerLocomotion playerLocomotion;
 
     public Vector2 movementInput;
     public float verticalInput;
     public float horizontalInput;
+    public bool jump_Input;
 
+    private void Awake()
+    {
+        playerLocomotion = GetComponent<PlayerLocomotion>();
+    }
     private void OnEnable()
     {
         if (playerControls == null)
@@ -23,6 +29,7 @@ public class InputManager : MonoBehaviour
             playerControls = new PlayerControls();
 
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.PlayerAction.Jump.performed += i => {jump_Input = true;};
         }
 
         playerControls.Enable();
@@ -36,6 +43,17 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
+        HandleJumpInput(); 
+    }
+
+    private void HandleJumpInput()
+    {
+        if (jump_Input)
+        {
+
+            playerLocomotion.HandleJump();
+            jump_Input = false;
+        }
     }
     private void HandleMovementInput()
     {
@@ -43,4 +61,5 @@ public class InputManager : MonoBehaviour
         horizontalInput = movementInput.x;
 
     }
+
 }

@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         cameraManager = FindAnyObjectByType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        playerLocomotion.inputManager = inputManager;
     }
 
     private void Update() //run the function that handels inputs every frame.

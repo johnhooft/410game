@@ -10,13 +10,29 @@ processes the inputs and converts them into charecter movement.
 
 public class PlayerLocomotion : MonoBehaviour
 {
-    InputManager inputManager;
+    public InputManager inputManager;
     Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
 
+    [Header("Falling")]
+    public float inAirTimer;
+    public float leapingVelocity;
+    public float fallingVelocity;
+    public float rayCastHeightOffset = 0.5f;
+    public LayerMask groundLayer;
+
+    [Header("Movement Speeds")]
     public float movementSpeed = 7;
     public float rotationSpeed = 10;
+
+    [Header("Movement Flags")]
+    public bool isGrounded;
+    public bool isJumping;
+
+    [Header("Jumping Speeds")]
+    public float jumpHeight = 3;
+    public float gravityIntensity = -15;
 
     private void Awake()
     {
@@ -27,6 +43,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void HandleAllMovement()
     {
+        HandleFallingAndLanding();
         HandleMovement();
         HandleRotation();
     }
@@ -61,5 +78,38 @@ public class PlayerLocomotion : MonoBehaviour
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         transform.rotation = playerRotation;
+    }
+
+    private void HandleFallingAndLanding()
+    {
+        RaycastHit hit;
+        Vector3 rayCastOrigin = transform.position;
+        rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
+
+        if (!isGrounded && !isJumping)
+        {
+            inAirTimer = inAirTimer + Time.deltaTime;
+            playerRigidbody.AddForce(transform.forward * leapingVelocity);
+            playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+        }
+
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, Vector3.down, out hit, 0.5f, groundLayer))
+        {
+            inAirTimer = 0;
+            isGrounded = true;
+            isJumping = false;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
+    public void HandleJump()
+    {
+        if (isGrounded)
+        {
+            isJumping = true;
+            playerRigidbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * gravityIntensity), ForceMode.Impulse);
+        }
     }
 }
