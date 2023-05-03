@@ -18,6 +18,7 @@ using UnityEngine.InputSystem.Utilities;
 public partial class @PlayerControls: IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
+   
     public @PlayerControls()
     {
         asset = InputActionAsset.FromJson(@"{
@@ -289,4 +290,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
     }
+  
+
+
 }
