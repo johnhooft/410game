@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnableMesh : MonoBehaviour
 {
+    public bool mesh_status;
     void Start()
     {
         // Iterate through all child objects
