@@ -44,6 +44,9 @@ public class PlayerLocomotion : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
+        if (playerRigidbody == null){
+            Debug.Log("Could not get rigidbody");
+        }
         cameraObject = Camera.main.transform;
         dogtext.enabled = false;
     }
@@ -63,6 +66,7 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
+        //Debug.Log(movementVelocity);
         playerRigidbody.velocity = movementVelocity;
     }
 
@@ -83,7 +87,7 @@ public class PlayerLocomotion : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
+        //Debug.Log(playerRotation);
         transform.rotation = playerRotation;
     }
 
