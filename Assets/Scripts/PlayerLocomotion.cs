@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 /*
 Description:
@@ -14,6 +16,10 @@ public class PlayerLocomotion : MonoBehaviour
     Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
+    public Transform other_dog;
+    public Transform player;
+    public TextMeshProUGUI dogtext;
+    
 
     [Header("Falling")]
     public float inAirTimer;
@@ -39,6 +45,7 @@ public class PlayerLocomotion : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
+        dogtext.enabled = false;
     }
 
     public void HandleAllMovement()
@@ -111,5 +118,37 @@ public class PlayerLocomotion : MonoBehaviour
             isJumping = true;
             playerRigidbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * gravityIntensity), ForceMode.Impulse);
         }
+    }
+
+    void OnSubmit()
+    {
+        if(Vector3.Distance(player.transform.position,other_dog.transform.position)<2)
+        {
+            
+            text();
+        }
+
+
+
+
+    }
+
+
+
+
+
+    void text()
+    {
+        dogtext.text = "Im Hungry maybe if you grab some of those brown mushrooms for me I can help you get that the pickup above me";
+        dogtext.enabled = true;
+        int i = 0;
+        while(i<1000)
+        {
+            
+            i++;
+
+        }
+        dogtext.enabled = false;
+
     }
 }
