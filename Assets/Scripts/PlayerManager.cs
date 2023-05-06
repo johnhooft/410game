@@ -36,10 +36,10 @@ public class PlayerManager : MonoBehaviour
         playerLocomotion.HandleAllMovement();
     }
 
-    //private void LateUpdate() //take the movement of the player and make camera follow.
-    //{
-        //cameraManager.FollowTarget();
-    //}
+    private void LateUpdate() //take the movement of the player and make camera follow.
+    {
+        cameraManager.HandleAllCameraMovement();
+    }
 
     // Collectibles!
     void OnTriggerEnter(Collider other)

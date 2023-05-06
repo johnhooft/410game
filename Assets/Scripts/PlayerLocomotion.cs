@@ -23,6 +23,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     [Header("Falling")]
     public float inAirTimer;
+    public float maxinAirTime = 15;
     public float leapingVelocity;
     public float fallingVelocity;
     public float rayCastHeightOffset = 0.5f;
@@ -66,7 +67,6 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
-        //Debug.Log(movementVelocity);
         playerRigidbody.velocity = movementVelocity;
     }
 
@@ -87,7 +87,6 @@ public class PlayerLocomotion : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        //Debug.Log(playerRotation);
         transform.rotation = playerRotation;
     }
 
@@ -100,8 +99,9 @@ public class PlayerLocomotion : MonoBehaviour
         if (!isGrounded && !isJumping)
         {
             inAirTimer = inAirTimer + Time.deltaTime;
+            if (inAirTimer > maxinAirTime) {inAirTimer = maxinAirTime;}
             playerRigidbody.AddForce(transform.forward * leapingVelocity);
-            playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);
+            if (playerRigidbody.velocity.y != 0) {playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);}
         }
 
         if (Physics.SphereCast(rayCastOrigin, 0.2f, Vector3.down, out hit, 0.5f, groundLayer))
@@ -113,6 +113,7 @@ public class PlayerLocomotion : MonoBehaviour
         else
         {
             isGrounded = false;
+            isJumping = false;
         }
     }
     public void HandleJump()
