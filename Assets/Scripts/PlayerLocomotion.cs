@@ -49,7 +49,7 @@ public class PlayerLocomotion : MonoBehaviour
             Debug.Log("Could not get rigidbody");
         }
         cameraObject = Camera.main.transform;
-        dogtext.enabled = false;
+        //dogtext.enabled = false;
     }
 
     public void HandleAllMovement()
