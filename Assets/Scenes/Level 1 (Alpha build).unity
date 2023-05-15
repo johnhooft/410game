@@ -5858,11 +5858,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 0}
   player: {fileID: 1343473565}
+  playerAngle: 0
+  angleTime: 0.2
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
-  fallingVelocity: 350
-  rayCastHeightOffset: 0.68
+  fallingVelocity: 400
+  rayCastHeightOffset: 0.55
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -6305,7 +6307,7 @@ GameObject:
   - component: {fileID: 1437799020}
   - component: {fileID: 1437799019}
   - component: {fileID: 1437799022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -20,6 +20,9 @@ public class PlayerLocomotion : MonoBehaviour
     public Transform player;
     //public TextMeshProUGUI dogtext;
     
+    [Header("Terrain Allignment")]
+    public float playerAngle;
+    public float angleTime;
 
     [Header("Falling")]
     public float inAirTimer;
@@ -55,8 +58,22 @@ public class PlayerLocomotion : MonoBehaviour
     public void HandleAllMovement()
     {
         HandleFallingAndLanding();
+        AlignWithTerrain();
         HandleMovement();
         HandleRotation();
+    }
+    
+    private void AlignWithTerrain()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity, groundLayer))
+        {
+            Vector3 targetNormal = hit.normal;
+            Quaternion targetRotation = Quaternion.FromToRotation(transform.up, targetNormal) * transform.rotation;
+            playerAngle = targetRotation.y;
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, angleTime);
+            //transform.rotation = targetRotation;
+        }
     }
     private void HandleMovement() // Handles the movement of the player.
     {
