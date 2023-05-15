@@ -16,9 +16,9 @@ public class PlayerLocomotion : MonoBehaviour
     Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
-    public Transform other_dog;
+    //public Transform other_dog;
     public Transform player;
-    public TextMeshProUGUI dogtext;
+    //public TextMeshProUGUI dogtext;
     
 
     [Header("Falling")]
@@ -124,7 +124,7 @@ public class PlayerLocomotion : MonoBehaviour
             playerRigidbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * gravityIntensity), ForceMode.Impulse);
         }
     }
-
+/*
     void OnSubmit()
     {
         if(Vector3.Distance(player.transform.position,other_dog.transform.position)<2)
@@ -137,11 +137,11 @@ public class PlayerLocomotion : MonoBehaviour
 
 
     }
+*/
 
 
 
-
-
+/*
     void text()
     {
         dogtext.text = "Im Hungry maybe if you grab some of those brown mushrooms for me I can help you get that the pickup above me";
@@ -156,4 +156,5 @@ public class PlayerLocomotion : MonoBehaviour
         dogtext.enabled = false;
 
     }
+    */
 }
