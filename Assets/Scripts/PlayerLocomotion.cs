@@ -23,6 +23,7 @@ public class PlayerLocomotion : MonoBehaviour
     [Header("Terrain Allignment")]
     public float playerAngle;
     public float angleTime;
+    public float triggerAngle;
 
     [Header("Falling")]
     public float inAirTimer;
@@ -70,9 +71,8 @@ public class PlayerLocomotion : MonoBehaviour
         {
             Vector3 targetNormal = hit.normal;
             Quaternion targetRotation = Quaternion.FromToRotation(transform.up, targetNormal) * transform.rotation;
-            playerAngle = targetRotation.y;
+            playerAngle = targetRotation.x;
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, angleTime);
-            //transform.rotation = targetRotation;
         }
     }
     private void HandleMovement() // Handles the movement of the player.
@@ -84,7 +84,15 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
-        playerRigidbody.velocity = movementVelocity;
+        if (playerAngle > triggerAngle || playerAngle < -triggerAngle)
+        {
+            movementVelocity.x += playerAngle;
+            playerRigidbody.velocity = movementVelocity;
+        }
+        else 
+        {
+            playerRigidbody.velocity = movementVelocity;
+        }
     }
 
     private void HandleRotation() // Handles the rotation of the player, player should correctly face the direction they are

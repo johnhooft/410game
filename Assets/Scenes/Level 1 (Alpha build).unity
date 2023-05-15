@@ -5860,6 +5860,7 @@ MonoBehaviour:
   player: {fileID: 1343473565}
   playerAngle: 0
   angleTime: 0.2
+  triggerAngle: 0.1
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
