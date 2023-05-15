@@ -86,7 +86,7 @@ public class PlayerLocomotion : MonoBehaviour
         Vector3 movementVelocity = moveDirection;
         if (playerAngle > triggerAngle || playerAngle < -triggerAngle)
         {
-            movementVelocity.x += playerAngle;
+            movementVelocity.x +=playerAngle;
             playerRigidbody.velocity = movementVelocity;
         }
         else 
