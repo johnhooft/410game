@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake() // get various components from object that it is attached too.
     {
+        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
+        Cursor.visible = false; // Hide the cursor
         inputManager = GetComponent<InputManager>();
         cameraManager = FindAnyObjectByType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
