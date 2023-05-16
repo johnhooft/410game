@@ -21,7 +21,7 @@ public class PlayerLocomotion : MonoBehaviour
     //public TextMeshProUGUI dogtext;
     
     [Header("Terrain Allignment")]
-    public float playerAngle;
+    public float playerAngle = 0f;
     public float angleTime;
     public float triggerAngle;
 
@@ -71,9 +71,8 @@ public class PlayerLocomotion : MonoBehaviour
         {
             Vector3 targetNormal = hit.normal;
             Quaternion targetRotation = Quaternion.FromToRotation(transform.up, targetNormal) * transform.rotation;
-            playerAngle = targetRotation.x;
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, angleTime);
-        }
+            }
     }
     private void HandleMovement() // Handles the movement of the player.
     {
@@ -84,13 +83,18 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
-        if (playerAngle > triggerAngle || playerAngle < -triggerAngle)
+        playerAngle = transform.rotation.x * 25;
+        if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
         {
-            movementVelocity.x +=playerAngle;
+            playerRigidbody.useGravity = false;
+            movementVelocity.y -= playerAngle;
+            Debug.Log("movement velocity = " + movementVelocity);
             playerRigidbody.velocity = movementVelocity;
         }
         else 
         {
+            playerRigidbody.useGravity = true;
+            Debug.Log("movement velocity = " + movementVelocity);
             playerRigidbody.velocity = movementVelocity;
         }
     }
@@ -128,8 +132,7 @@ public class PlayerLocomotion : MonoBehaviour
             playerRigidbody.AddForce(transform.forward * leapingVelocity);
             if (playerRigidbody.velocity.y != 0) {playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);}
         }
-
-        if (Physics.SphereCast(rayCastOrigin, 0.2f, Vector3.down, out hit, 0.5f, groundLayer))
+        if (Physics.SphereCast(rayCastOrigin, 0.2f, Vector3.down, out hit, 0.3f, groundLayer))
         {
             inAirTimer = 0;
             isGrounded = true;
