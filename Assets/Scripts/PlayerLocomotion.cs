@@ -24,7 +24,7 @@ public class PlayerLocomotion : MonoBehaviour
     public float playerAngle = 0f;
     public float angleTime;
     public float triggerAngle;
-    public int terrainAngleMultiplier = 0;
+    public float terrainAngleMultiplier = 0f;
 
     [Header("Falling")]
     public float inAirTimer;
@@ -75,6 +75,7 @@ public class PlayerLocomotion : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, angleTime);
             }
     }
+
     private void HandleMovement() // Handles the movement of the player.
     {
         moveDirection = cameraObject.forward * inputManager.verticalInput;
@@ -84,11 +85,14 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
-        playerAngle = transform.rotation.x * terrainAngleMultiplier;
+        playerAngle = transform.eulerAngles.x;
+        if (playerAngle > 180) {playerAngle -= 360;}
+        playerAngle *= terrainAngleMultiplier;
         if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
         {
             playerRigidbody.useGravity = false;
-            movementVelocity.y += playerAngle;
+            movementVelocity.y = playerAngle;
+            Debug.Log("player angle = " + playerAngle);
             Debug.Log("movement velocity = " + movementVelocity);
             playerRigidbody.velocity = movementVelocity;
         }

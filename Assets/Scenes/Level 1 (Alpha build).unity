@@ -6776,7 +6776,7 @@ MonoBehaviour:
   playerAngle: 0
   angleTime: 0.2
   triggerAngle: 1
-  terrainAngleMultiplier: -25
+  terrainAngleMultiplier: -0.25
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
