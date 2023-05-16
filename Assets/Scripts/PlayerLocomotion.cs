@@ -88,7 +88,7 @@ public class PlayerLocomotion : MonoBehaviour
         if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
         {
             playerRigidbody.useGravity = false;
-            movementVelocity.y =+ playerAngle;
+            movementVelocity.y += playerAngle;
             Debug.Log("movement velocity = " + movementVelocity);
             playerRigidbody.velocity = movementVelocity;
         }
