@@ -24,6 +24,7 @@ public class PlayerLocomotion : MonoBehaviour
     public float playerAngle = 0f;
     public float angleTime;
     public float triggerAngle;
+    public int terrainAngleMultiplier = 0;
 
     [Header("Falling")]
     public float inAirTimer;
@@ -83,18 +84,17 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
-        playerAngle = transform.rotation.x * 25;
+        playerAngle = transform.rotation.x * terrainAngleMultiplier;
         if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
         {
             playerRigidbody.useGravity = false;
-            movementVelocity.y -= playerAngle;
+            movementVelocity.y =+ playerAngle;
             Debug.Log("movement velocity = " + movementVelocity);
             playerRigidbody.velocity = movementVelocity;
         }
         else 
         {
             playerRigidbody.useGravity = true;
-            Debug.Log("movement velocity = " + movementVelocity);
             playerRigidbody.velocity = movementVelocity;
         }
     }
