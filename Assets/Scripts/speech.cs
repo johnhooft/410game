@@ -24,7 +24,7 @@ public class speech : MonoBehaviour
     }
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(7);
         text.SetActive(false);
 
 
