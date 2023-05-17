@@ -6,6 +6,7 @@ public class speech : MonoBehaviour
 {
     
     public GameObject text;
+    
     static public bool MiniGame1Completion = false;
     
     // Update is called once per frame
@@ -31,9 +32,5 @@ public class speech : MonoBehaviour
 
 
     }
-    void Update()
-    {
-
-
-    }
+   
 }
