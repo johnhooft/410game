@@ -7,6 +7,7 @@ TagManager:
   - PickUp
   - Mpickup
   - MiniGame 1
+  - Enemy
   layers:
   - Default
   - TransparentFX

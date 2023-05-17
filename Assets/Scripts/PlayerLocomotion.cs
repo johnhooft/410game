@@ -92,8 +92,8 @@ public class PlayerLocomotion : MonoBehaviour
         {
             playerRigidbody.useGravity = false;
             movementVelocity.y = playerAngle;
-            Debug.Log("player angle = " + playerAngle);
-            Debug.Log("movement velocity = " + movementVelocity);
+            //Debug.Log("player angle = " + playerAngle);
+            //Debug.Log("movement velocity = " + movementVelocity);
             playerRigidbody.velocity = movementVelocity;
         }
         else 
