@@ -9508,7 +9508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Go through the portal behind me and collect 10 bones in tire land. Then
+  m_text: Go through the portal behind me and collect 12 bones in tire land. Then
     i'll let you in my cabin...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
