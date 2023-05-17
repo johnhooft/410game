@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
 
     InputManager inputManager;
     CameraManager cameraManager;
+    Player_Animation player_animation;
     PlayerLocomotion playerLocomotion;
 
     private void Awake() // get various components from object that it is attached too.
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
         Cursor.visible = false; // Hide the cursor
         inputManager = GetComponent<InputManager>();
+        player_animation = transform.GetChild(0).GetComponent<Player_Animation>();
         cameraManager = FindAnyObjectByType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerLocomotion.inputManager = inputManager;
@@ -31,6 +33,7 @@ public class PlayerManager : MonoBehaviour
     private void Update() //run the function that handles inputs every frame.
     {
         inputManager.HandleAllInputs();
+        player_animation.HandleAnimation();
     }
 
     private void FixedUpdate() //take the input variables and convert them into movements of the player.

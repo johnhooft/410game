@@ -46,10 +46,14 @@ public class PlayerLocomotion : MonoBehaviour
     public float jumpHeight = 3;
     public float gravityIntensity = -15;
 
+    [Header("Animation")]
+    public Animator animator;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
         if (playerRigidbody == null){
             Debug.Log("Could not get rigidbody");
         }
@@ -63,8 +67,16 @@ public class PlayerLocomotion : MonoBehaviour
         AlignWithTerrain();
         HandleMovement();
         HandleRotation();
+        HandleAnimation();
     }
-    
+
+    void HandleAnimation()
+    {
+        bool isWalking = inputManager.horizontalInput != 0 || inputManager.verticalInput != 0;
+        print(isWalking);
+        animator.SetBool("IsWalking", isWalking);
+    }
+
     private void AlignWithTerrain()
     {
         RaycastHit hit;
