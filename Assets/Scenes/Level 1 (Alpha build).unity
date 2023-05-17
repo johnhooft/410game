@@ -5307,7 +5307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: There's  not way im letting you pass this bridge without some form of payment.
+  m_text: There's no way im letting you pass this bridge without some form of payment.
     Bring me my favorite red bone...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
