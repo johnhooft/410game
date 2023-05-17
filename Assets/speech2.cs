@@ -41,9 +41,10 @@ public class speech2 : MonoBehaviour
         }
         else if( bone.activeSelf == false)
         {
+        bridge.SetActive(false);
         yield return new WaitForSeconds(7);
         text.SetActive(false);
-        bridge.SetActive(false);
+        
 
         }
 
