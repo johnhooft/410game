@@ -899,6 +899,7 @@ GameObject:
   - component: {fileID: 1728208254}
   - component: {fileID: 1728208258}
   - component: {fileID: 1728208259}
+  - component: {fileID: 1728208260}
   m_Layer: 6
   m_Name: 'Player '
   m_TagString: Untagged
@@ -1015,6 +1016,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countText: {fileID: 1241702413}
   healthText: {fileID: 938617257}
+  portalTransform: {fileID: 0}
+  completion: 0
+--- !u!114 &1728208260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728208252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7edbcdfdaa55466194b5b7bed198a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1735080940
 PrefabInstance:
   m_ObjectHideFlags: 0

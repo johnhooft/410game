@@ -35,6 +35,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
         countText.text = "Bones Collected: " + count.ToString();
         if(count >= 12)
         {
+            StaticPlayerInfo.MiniGame1Completion = true;
             SceneManager.LoadScene(0);
         }
     }
