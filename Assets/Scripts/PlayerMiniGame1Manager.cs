@@ -32,7 +32,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Bones Collected: " + count.ToString();
+        countText.text = "Bones Collected: " + count.ToString() + "/12";
         if(count >= 12)
         {
             StaticPlayerInfo.MiniGame1Completion = true;
