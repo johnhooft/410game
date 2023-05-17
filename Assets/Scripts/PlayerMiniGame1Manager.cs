@@ -8,6 +8,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
 {
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
+    public Transform portalTransform;
 
     private int count;
     private int health;
@@ -34,7 +35,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
         countText.text = "Bones Collected: " + count.ToString();
         if(count >= 12)
         {
-            //do something
+            SceneManager.LoadScene(0);
         }
     }
 
