@@ -5,14 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MiniGame1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
+            StaticPlayerInfo.portalTransform = transform.position;
             SceneManager.LoadScene(1);
     }
 }

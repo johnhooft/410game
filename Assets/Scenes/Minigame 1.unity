@@ -1776,7 +1776,7 @@ MonoBehaviour:
   maxinAirTime: 2
   leapingVelocity: 1
   fallingVelocity: 400
-  rayCastHeightOffset: 0.31
+  rayCastHeightOffset: 0.35
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -1784,8 +1784,9 @@ MonoBehaviour:
   rotationSpeed: 10
   isGrounded: 1
   isJumping: 0
-  jumpHeight: 100
-  gravityIntensity: -30
+  jumpHeight: 50
+  gravityIntensity: -15
+  animator: {fileID: 0}
 --- !u!114 &1728208257
 MonoBehaviour:
   m_ObjectHideFlags: 0

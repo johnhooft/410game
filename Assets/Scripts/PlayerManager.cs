@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     CameraManager cameraManager;
     Player_Animation player_animation;
     PlayerLocomotion playerLocomotion;
+    Rigidbody playerRigidbody;
 
     private void Awake() // get various components from object that it is attached too.
     {
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
         player_animation = transform.GetChild(0).GetComponent<Player_Animation>();
         cameraManager = FindAnyObjectByType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        playerRigidbody = GetComponent<Rigidbody>();
         playerLocomotion.inputManager = inputManager;
     }
 

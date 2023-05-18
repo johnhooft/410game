@@ -8,7 +8,6 @@ public class PlayerMiniGame1Manager : MonoBehaviour
 {
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
-    public Transform portalTransform;
 
     private int count;
     private int health;
