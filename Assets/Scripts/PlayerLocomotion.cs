@@ -36,6 +36,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     [Header("Movement Speeds")]
     public float movementSpeed = 7;
+    public float maxMoveSpeed = 5;
     public float rotationSpeed = 10;
 
     [Header("Movement Flags")]
@@ -73,7 +74,7 @@ public class PlayerLocomotion : MonoBehaviour
     void HandleAnimation()
     {
         bool isWalking = inputManager.horizontalInput != 0 || inputManager.verticalInput != 0;
-        print(isWalking);
+        //Debug.Log(isWalking);
         animator.SetBool("IsWalking", isWalking);
     }
 
@@ -104,8 +105,7 @@ public class PlayerLocomotion : MonoBehaviour
         {
             playerRigidbody.useGravity = false;
             movementVelocity.y = playerAngle;
-            //Debug.Log("player angle = " + playerAngle);
-            //Debug.Log("movement velocity = " + movementVelocity);
+            if (movementVelocity.y > maxMoveSpeed) {movementVelocity.y = maxMoveSpeed;}
             playerRigidbody.velocity = movementVelocity;
         }
         else 

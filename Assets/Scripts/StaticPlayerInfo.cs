@@ -16,7 +16,7 @@ public class StaticPlayerInfo : MonoBehaviour
         {
             
             door.SetActive(false);
-            Debug.Log("minigamedone");
+            //Debug.Log("minigamedone");
 
         }
     }
