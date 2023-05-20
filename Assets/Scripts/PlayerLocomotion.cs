@@ -22,7 +22,7 @@ public class PlayerLocomotion : MonoBehaviour
     
     [Header("Terrain Allignment")]
     public float playerAngle = 0f;
-    public float maxAngle = 60f;
+    public float maxSlopeAngle = 60f;
     public float angleTime;
     public float triggerAngle;
     public float terrainAngleMultiplier = 0f;
@@ -38,11 +38,13 @@ public class PlayerLocomotion : MonoBehaviour
     [Header("Movement Speeds")]
     public float movementSpeed = 7;
     public float maxMoveSpeed = 5;
+    public float sprintSpeed = 10;
     public float rotationSpeed = 10;
 
     [Header("Movement Flags")]
     public bool isGrounded;
     public bool isJumping;
+    public bool isSprinting;
 
     [Header("Jumping Speeds")]
     public float jumpHeight = 3;
@@ -97,7 +99,8 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection = moveDirection * movementSpeed;
+        if (isSprinting) {moveDirection = moveDirection * sprintSpeed;}
+        else {moveDirection = moveDirection * movementSpeed;}
 
         Vector3 movementVelocity = moveDirection;
         if (playerAngle > 180) {playerAngle -= 360;}
@@ -107,7 +110,7 @@ public class PlayerLocomotion : MonoBehaviour
             playerRigidbody.useGravity = false;
             movementVelocity.y = playerAngle;
             if (movementVelocity.y > maxMoveSpeed) {movementVelocity.y = maxMoveSpeed;}
-            if (playerAngle > maxAngle) {movementVelocity = Vector3.zero;}
+            if (playerAngle > maxSlopeAngle) {movementVelocity = Vector3.zero;}
             playerRigidbody.velocity = movementVelocity;
         }
         else 
