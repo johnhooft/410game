@@ -22,6 +22,7 @@ public class PlayerLocomotion : MonoBehaviour
     
     [Header("Terrain Allignment")]
     public float playerAngle = 0f;
+    public float maxAngle = 60f;
     public float angleTime;
     public float triggerAngle;
     public float terrainAngleMultiplier = 0f;
@@ -86,6 +87,7 @@ public class PlayerLocomotion : MonoBehaviour
             Vector3 targetNormal = hit.normal;
             Quaternion targetRotation = Quaternion.FromToRotation(transform.up, targetNormal) * transform.rotation;
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, angleTime);
+            playerAngle = transform.eulerAngles.x;
             }
     }
 
@@ -98,7 +100,6 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection * movementSpeed;
 
         Vector3 movementVelocity = moveDirection;
-        playerAngle = transform.eulerAngles.x;
         if (playerAngle > 180) {playerAngle -= 360;}
         playerAngle *= terrainAngleMultiplier;
         if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
@@ -106,6 +107,7 @@ public class PlayerLocomotion : MonoBehaviour
             playerRigidbody.useGravity = false;
             movementVelocity.y = playerAngle;
             if (movementVelocity.y > maxMoveSpeed) {movementVelocity.y = maxMoveSpeed;}
+            if (playerAngle > maxAngle) {movementVelocity = Vector3.zero;}
             playerRigidbody.velocity = movementVelocity;
         }
         else 
