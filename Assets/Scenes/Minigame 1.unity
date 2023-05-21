@@ -1769,6 +1769,7 @@ MonoBehaviour:
   inputManager: {fileID: 0}
   player: {fileID: 1728208253}
   playerAngle: 0
+  maxSlopeAngle: 13
   angleTime: 0.2
   triggerAngle: 1
   terrainAngleMultiplier: -0.25
@@ -1781,9 +1782,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   movementSpeed: 5
+  maxMoveSpeed: 5
+  sprintSpeed: 10
   rotationSpeed: 10
   isGrounded: 1
   isJumping: 0
+  isSprinting: 0
   jumpHeight: 50
   gravityIntensity: -15
   animator: {fileID: 0}
@@ -1806,6 +1810,7 @@ MonoBehaviour:
   verticalInput: 0
   horizontalInput: 0
   jump_Input: 0
+  shiftInput: 0
 --- !u!114 &1728208258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,7 +1837,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countText: {fileID: 1241702413}
   healthText: {fileID: 938617257}
-  portalTransform: {fileID: 0}
 --- !u!114 &1728208260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,7 +1849,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7edbcdfdaa55466194b5b7bed198a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
 --- !u!1001 &1735080940
 PrefabInstance:
   m_ObjectHideFlags: 0

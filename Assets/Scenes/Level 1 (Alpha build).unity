@@ -8301,6 +8301,7 @@ GameObject:
   - component: {fileID: 1343473567}
   - component: {fileID: 1343473568}
   - component: {fileID: 1343473569}
+  - component: {fileID: 1343473570}
   m_Layer: 6
   m_Name: Player (level 1)
   m_TagString: Player
@@ -8339,7 +8340,7 @@ MonoBehaviour:
   inputManager: {fileID: 0}
   player: {fileID: 1343473565}
   playerAngle: 0
-  maxAngle: 45
+  maxSlopeAngle: 13
   angleTime: 0.2
   triggerAngle: 1
   terrainAngleMultiplier: -0.35
@@ -8447,7 +8448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7edbcdfdaa55466194b5b7bed198a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 1761321944}
 --- !u!114 &1343473569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8462,6 +8462,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   inputManager: {fileID: 0}
+--- !u!114 &1343473570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343473560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfea4c88915d741aaaec53a8a6b35f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 1761321944}
 --- !u!1 &1354033041
 GameObject:
   m_ObjectHideFlags: 0
