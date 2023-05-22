@@ -320,7 +320,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   playerAngle: 0
   playerTilt: 0
-  maxSlopeAngle: 60
+  maxSlopeAngle: 55
   angleTime: 0.2
   triggerAngle: 4
   terrainAngleMultiplier: -0.35

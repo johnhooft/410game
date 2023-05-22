@@ -16,6 +16,7 @@ public class PlayerLocomotion : MonoBehaviour
     public Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
+    GroundAngleCheck slopeCheck;
     //public Transform other_dog;
     //public Transform player;
     //public TextMeshProUGUI dogtext;
@@ -60,6 +61,7 @@ public class PlayerLocomotion : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
         animator = transform.GetChild(0).GetComponent<Animator>();
+        slopeCheck = GetComponent<GroundAngleCheck>();
         if (playerRigidbody == null){
             Debug.Log("Could not get rigidbody");
         }
@@ -110,7 +112,7 @@ public class PlayerLocomotion : MonoBehaviour
         Vector3 movementVelocity = moveDirection;
         playerAngle *= terrainAngleMultiplier;
 
-        if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
+        if ((slopeCheck.groundSlopeAngle > triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
         {
             playerRigidbody.useGravity = false;
             movementVelocity.y = playerAngle;
@@ -118,8 +120,15 @@ public class PlayerLocomotion : MonoBehaviour
             if (movementVelocity.y > maxVertMoveSpeed) {movementVelocity.y = maxVertMoveSpeed;}
             //Cap movement speed down slope, devide by 1.5 as we want to player to go down slopes slower than climb them.
             if (movementVelocity.y < -maxVertMoveSpeed) {movementVelocity.y = -maxVertMoveSpeed / 1.5f;} 
-            if (playerAngle > maxSlopeAngle) {movementVelocity = Vector3.zero;} 
-            playerRigidbody.velocity = movementVelocity;
+            if (slopeCheck.groundSlopeAngle < maxSlopeAngle)
+            {
+                playerRigidbody.velocity = movementVelocity;
+            }
+            else 
+            {
+                playerRigidbody.useGravity = true;
+                playerRigidbody.velocity = Vector3.zero;
+            }
         }
 
         else 
