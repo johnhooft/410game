@@ -24,7 +24,6 @@ public class PlayerLocomotion : MonoBehaviour
     public float playerAngle = 0f;
     public float playerTilt;
     public float maxSlopeAngle = 60f;
-    public float maxTiltAngle = 0f;
     public float angleTime;
     public float triggerAngle;
     public float terrainAngleMultiplier = 0f;
@@ -39,7 +38,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     [Header("Movement Speeds")]
     public float movementSpeed = 7;
-    public float maxMoveSpeed = 5;
+    public float maxVertMoveSpeed = 5; // max speed dog can move up or down (does not affect falling speed).
     public float sprintSpeed = 10;
     public float rotationSpeed = 10;
 
@@ -113,8 +112,11 @@ public class PlayerLocomotion : MonoBehaviour
         {
             playerRigidbody.useGravity = false;
             movementVelocity.y = playerAngle;
-            if (movementVelocity.y > maxMoveSpeed) {movementVelocity.y = maxMoveSpeed;}
-            if (playerAngle > maxSlopeAngle) {movementVelocity = Vector3.zero;}
+            //cap movement speed up slope.
+            if (movementVelocity.y > maxVertMoveSpeed) {movementVelocity.y = maxVertMoveSpeed;}
+            //Cap movement speed down slope, devide by 1.5 as we want to player to go down slopes slower than climb them.
+            if (movementVelocity.y < -maxVertMoveSpeed) {movementVelocity.y = -maxVertMoveSpeed / 1.5f;} 
+            if (playerAngle > maxSlopeAngle) {movementVelocity = Vector3.zero;} 
             playerRigidbody.velocity = movementVelocity;
         }
         else 

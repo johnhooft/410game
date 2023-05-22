@@ -329,7 +329,7 @@ MonoBehaviour:
   maxinAirTime: 2
   leapingVelocity: 1
   fallingVelocity: 400
-  rayCastHeightOffset: 0.35
+  rayCastHeightOffset: 0.45
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
