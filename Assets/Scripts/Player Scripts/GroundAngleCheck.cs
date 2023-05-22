@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-// Finds the slope/grade/incline angle of ground underneath a CharacterController
+// Finds the slope/grade/incline angle of ground underneath a Rigidbody
 public class GroundAngleCheck : MonoBehaviour {
 
     [Header("Results")] 
@@ -20,21 +20,22 @@ public class GroundAngleCheck : MonoBehaviour {
     public Vector3 rayOriginOffset2 = new Vector3(0.2f, 0f, -0.16f);
 
     // Component reference
-    private CharacterController controller;
+    public Rigidbody rb;
 
     void Awake()
     {
         // Get component on the same GameObject
-        controller = GetComponent<CharacterController>();
-        if (controller == null) { Debug.LogError("GroundChecker did not find a CharacterController component."); }
+        rb = GetComponent<Rigidbody>();
+        if (rb == null) { Debug.LogError("GroundChecker did not find a Rigidbody component."); }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // Check ground, with an origin point defaulting to the bottom middle
-        // of the char controller's collider. Plus a little higher 
-        if (controller && controller.isGrounded) {
-            CheckGround(new Vector3(transform.position.x, transform.position.y - (controller.height / 2) + startDistanceFromBottom, transform.position.z));
+        // of the rigidbody's collider. Plus a little higher 
+        if (rb)
+        {
+            CheckGround(rb.position - new Vector3(0f, rb.GetComponent<Collider>().bounds.extents.y - startDistanceFromBottom, 0f));
         }
     }
 
@@ -93,7 +94,7 @@ public class GroundAngleCheck : MonoBehaviour {
             {
                 // 2 collision points (sphere and first raycast): AVERAGE the two
                 float average = (groundSlopeAngle + angleOne) / 2;
-		groundSlopeAngle = average;
+                groundSlopeAngle = average;
             }
         }
     }
@@ -103,8 +104,8 @@ public class GroundAngleCheck : MonoBehaviour {
         if (showDebug)
         {
             // Visualize SphereCast with two spheres and a line
-            Vector3 startPoint = new Vector3(transform.position.x, transform.position.y - (controller.height / 2) + startDistanceFromBottom, transform.position.z);
-            Vector3 endPoint = new Vector3(transform.position.x, transform.position.y - (controller.height / 2) + startDistanceFromBottom - sphereCastDistance, transform.position.z);
+            Vector3 startPoint = rb.position - new Vector3(0f, rb.GetComponent<Collider>().bounds.extents.y - startDistanceFromBottom, 0f);
+            Vector3 endPoint = startPoint - new Vector3(0f, sphereCastDistance, 0f);
 
             Gizmos.color = Color.white;
             Gizmos.DrawWireSphere(startPoint, sphereCastRadius);
@@ -115,5 +116,4 @@ public class GroundAngleCheck : MonoBehaviour {
             Gizmos.DrawLine(startPoint, endPoint);
         }
     }
-
 }
