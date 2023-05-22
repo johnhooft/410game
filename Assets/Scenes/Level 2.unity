@@ -321,7 +321,6 @@ MonoBehaviour:
   playerAngle: 0
   playerTilt: 0
   maxSlopeAngle: 13
-  maxTiltAngle: 0
   angleTime: 0.2
   triggerAngle: 1
   terrainAngleMultiplier: -0.35
@@ -334,7 +333,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   movementSpeed: 5
-  maxMoveSpeed: 5
+  maxVertMoveSpeed: 5
   sprintSpeed: 7
   rotationSpeed: 10
   isGrounded: 1
@@ -381,10 +380,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.16434808
-  m_Height: 0.60319024
+  m_Radius: 0.12465373
+  m_Height: 0.5585468
   m_Direction: 1
-  m_Center: {x: 0.0030025989, y: 0.2968649, z: -0.19980668}
+  m_Center: {x: 0.0014349222, y: 0.27639222, z: -0.19980669}
 --- !u!136 &683036302
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -395,10 +394,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.17521033
-  m_Height: 0.6112851
+  m_Radius: 0.16398162
+  m_Height: 0.62572014
   m_Direction: 1
-  m_Center: {x: 0.010000005, y: 0.29956192, z: 0.23363927}
+  m_Center: {x: -0.0024188757, y: 0.30984718, z: 0.26148432}
 --- !u!136 &683036303
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -409,10 +408,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.15
-  m_Height: 0.4
+  m_Radius: 0.20057632
+  m_Height: 0.40115264
   m_Direction: 1
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0.050576314}
 --- !u!1 &906290342
 GameObject:
   m_ObjectHideFlags: 0

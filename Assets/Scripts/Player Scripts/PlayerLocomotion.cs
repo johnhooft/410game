@@ -17,7 +17,7 @@ public class PlayerLocomotion : MonoBehaviour
     Transform cameraObject;
     Rigidbody playerRigidbody;
     //public Transform other_dog;
-    public Transform player;
+    //public Transform player;
     //public TextMeshProUGUI dogtext;
     
     [Header("Terrain Allignment")]
@@ -29,6 +29,7 @@ public class PlayerLocomotion : MonoBehaviour
     public float terrainAngleMultiplier = 0f;
 
     [Header("Falling")]
+    public bool showDebug = false; 
     public float inAirTimer;
     public float maxinAirTime = 15;
     public float leapingVelocity;
@@ -108,6 +109,7 @@ public class PlayerLocomotion : MonoBehaviour
 
         Vector3 movementVelocity = moveDirection;
         playerAngle *= terrainAngleMultiplier;
+
         if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
         {
             playerRigidbody.useGravity = false;
@@ -119,6 +121,7 @@ public class PlayerLocomotion : MonoBehaviour
             if (playerAngle > maxSlopeAngle) {movementVelocity = Vector3.zero;} 
             playerRigidbody.velocity = movementVelocity;
         }
+
         else 
         {
             playerRigidbody.useGravity = true;
@@ -161,6 +164,8 @@ public class PlayerLocomotion : MonoBehaviour
         }
         if (Physics.SphereCast(rayCastOrigin, 0.2f, Vector3.down, out hit, 0.3f, groundLayer))
         {
+            // print red line of raycast.
+            if (showDebug) { Debug.DrawLine(rayCastOrigin, hit.point, Color.red); }
             inAirTimer = 0;
             isGrounded = true;
             isJumping = false;
