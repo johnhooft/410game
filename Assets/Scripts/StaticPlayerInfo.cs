@@ -5,5 +5,6 @@ using UnityEngine;
 public class StaticPlayerInfo : MonoBehaviour
 {
     static public bool MiniGame1Completion = false;
-    static public Vector3 portalTransform = new Vector3(0, 0, 0);
+    static public Vector3 portal1 = new Vector3(35f, 1.85f, 73f);
+    static public bool portalReturn;
 }

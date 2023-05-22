@@ -7,7 +7,6 @@ public class MiniGame1 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-            StaticPlayerInfo.portalTransform = transform.position;
             SceneManager.LoadScene(1);
     }
 }

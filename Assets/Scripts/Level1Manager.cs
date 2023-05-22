@@ -8,7 +8,7 @@ public class Level1Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -17,7 +17,11 @@ public class Level1Manager : MonoBehaviour
         //Debug.Log("Minigame 1  completion = " + MiniGame1Completion);   
         if(StaticPlayerInfo.MiniGame1Completion == true)
         {
-            
+            if (StaticPlayerInfo.portalReturn)
+            {
+                transform.position = StaticPlayerInfo.portal1;
+                StaticPlayerInfo.portalReturn = false;
+            }
             door.SetActive(false);
             //Debug.Log("minigamedone");
 

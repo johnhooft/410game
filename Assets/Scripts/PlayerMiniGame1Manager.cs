@@ -35,6 +35,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
         if(count >= 12)
         {
             StaticPlayerInfo.MiniGame1Completion = true;
+            StaticPlayerInfo.portalReturn = true;
             SceneManager.LoadScene(0);
         }
     }
