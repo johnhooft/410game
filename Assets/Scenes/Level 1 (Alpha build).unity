@@ -3347,7 +3347,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 1084269589}
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 73
+    m_Bits: 9
   cameraCollisionOffSet: 0.25
   minCollisionOffSet: 0.2
   cameraCollisionRadius: 0.25
@@ -8338,9 +8338,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 1343473565}
   playerAngle: 0
+  playerTilt: 0
   maxSlopeAngle: 13
+  maxTiltAngle: 0
   angleTime: 0.2
   triggerAngle: 1
   terrainAngleMultiplier: -0.35

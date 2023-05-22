@@ -13,7 +13,7 @@ processes the inputs and converts them into charecter movement.
 public class PlayerLocomotion : MonoBehaviour
 {
     public InputManager inputManager;
-    Vector3 moveDirection;
+    public Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
     //public Transform other_dog;
