@@ -22,7 +22,9 @@ public class PlayerLocomotion : MonoBehaviour
     
     [Header("Terrain Allignment")]
     public float playerAngle = 0f;
+    public float playerTilt;
     public float maxSlopeAngle = 60f;
+    public float maxTiltAngle = 0f;
     public float angleTime;
     public float triggerAngle;
     public float terrainAngleMultiplier = 0f;
@@ -90,6 +92,9 @@ public class PlayerLocomotion : MonoBehaviour
             Quaternion targetRotation = Quaternion.FromToRotation(transform.up, targetNormal) * transform.rotation;
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, angleTime);
             playerAngle = transform.eulerAngles.x;
+            playerTilt = transform.eulerAngles.z;
+            if (playerAngle > 180) {playerAngle -= 360;}
+            if (playerTilt > 180) {playerTilt -= 360;}
             }
     }
 
@@ -103,7 +108,6 @@ public class PlayerLocomotion : MonoBehaviour
         else {moveDirection = moveDirection * movementSpeed;}
 
         Vector3 movementVelocity = moveDirection;
-        if (playerAngle > 180) {playerAngle -= 360;}
         playerAngle *= terrainAngleMultiplier;
         if ((playerAngle > triggerAngle || playerAngle < -triggerAngle) && (movementVelocity.x > 0 || movementVelocity.z > 0))
         {
