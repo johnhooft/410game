@@ -1716,6 +1716,7 @@ GameObject:
   - component: {fileID: 1728208259}
   - component: {fileID: 1728208260}
   - component: {fileID: 1728208261}
+  - component: {fileID: 1728208262}
   m_Layer: 6
   m_Name: 'Player '
   m_TagString: Untagged
@@ -1793,7 +1794,7 @@ MonoBehaviour:
   isSprinting: 0
   jumpHeight: 50
   gravityIntensity: -15
-  animator: {fileID: 0}
+  animator: {fileID: 1735080944}
 --- !u!114 &1728208257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,6 +1879,19 @@ MonoBehaviour:
   rayOriginOffset1: {x: -0.2, y: 0, z: 0.16}
   rayOriginOffset2: {x: 0.2, y: 0, z: -0.16}
   rb: {fileID: 1728208254}
+--- !u!65 &1728208262
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728208252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9159502, y: 1.9331634, z: 1.4629868}
+  m_Center: {x: 0.042349398, y: 0.4665817, z: 0.17654675}
 --- !u!1001 &1735080940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1983,6 +1997,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f875f181199e633488b94fd83da72ac6, type: 3}
+--- !u!95 &1735080944 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95309333027228916, guid: d01860e3738168b4392c15acbc1b5d47, type: 3}
+  m_PrefabInstance: {fileID: 1735080940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1957673918
 GameObject:
   m_ObjectHideFlags: 0

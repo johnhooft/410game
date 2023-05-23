@@ -5727,7 +5727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea4c88915d741aaaec53a8a6b35f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 1761321944}
 --- !u!114 &838804867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5818,7 +5818,7 @@ MonoBehaviour:
   isSprinting: 0
   jumpHeight: 50
   gravityIntensity: -15
-  animator: {fileID: 0}
+  animator: {fileID: 569552065}
 --- !u!114 &838804872
 MonoBehaviour:
   m_ObjectHideFlags: 0
