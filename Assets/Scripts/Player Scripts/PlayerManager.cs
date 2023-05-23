@@ -91,5 +91,4 @@ public class PlayerManager : MonoBehaviour
             //Debug.Log("Hooray! Collected All Bones!");
         }
     }
-
 }
