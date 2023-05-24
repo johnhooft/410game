@@ -27,8 +27,8 @@ public class Player_Animation : MonoBehaviour
         /** y = verticalInput; or y = movementInput.y; **/
         /** x = horizontalInput; or x = movementInput.x; **/
         
-        animator.SetFloat("x", verticalInput);
-        animator.SetFloat("y", horizontalInput);
+        animator.SetFloat("x", inputManager.verticalInput);
+        animator.SetFloat("y", inputManager.horizontalInput);
 
         bool isWalking = inputManager.horizontalInput != 0 || inputManager.verticalInput != 0;
 
