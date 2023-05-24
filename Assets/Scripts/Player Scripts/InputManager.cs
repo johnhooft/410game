@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
     PlayerLocomotion playerLocomotion;
+    PlayerAnimation playerAnimation;
 
     public Vector2 movementInput;
     public Vector2 cameraInput;
@@ -28,6 +29,7 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        playerAnimation = GetComponent<PlayerAnimation>();
     }
     private void OnEnable()
     {
