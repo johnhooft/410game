@@ -24,5 +24,14 @@ public class Player_Animation : MonoBehaviour
 
         if (isWalking)
             animator.SetBool("IsWalking", isWalking);
+
+        /* Is the dog sprinting? */
+        animator.SetBool("IsSprinting", playerLocomotion.isSprinting)
+        /* Essentially just */
+        /** y = verticalInput; or y = movementInput.y; **/
+        /** x = horizontalInput; or x = movementInput.x; **/
+        animator.SetFloat("x", verticalInput);
+        animator.SetFloat("y", horizontalInput)
+       
     }
 }
