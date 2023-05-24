@@ -4,12 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class Player_Animation : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour
 {
 
     public Animator animator;
-    InputManager inputManager;
-    PlayerLocomotion playerLocomotion;
 
     
     // Start is called before the first frame update
