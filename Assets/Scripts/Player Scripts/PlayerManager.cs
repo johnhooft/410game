@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
 
     InputManager inputManager;
     CameraManager cameraManager;
-    Player_Animation player_animation;
+    // Player_Animation player_Animation;
     PlayerLocomotion playerLocomotion;
     Rigidbody playerRigidbody;
 
@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
         Cursor.visible = false; // Hide the cursor
         inputManager = GetComponent<InputManager>();
-        player_animation = transform.GetChild(0).GetComponent<Player_Animation>();
+        // player_Animation = transform.GetChild(0).GetComponent<Player_Animation>();
         cameraManager = FindAnyObjectByType<CameraManager>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerRigidbody = GetComponent<Rigidbody>();
@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
     private void Update() //run the function that handles inputs every frame.
     {
         inputManager.HandleAllInputs();
-        player_animation.HandleAnimation();
+        // player_Animation.HandleAnimation();
     }
 
     private void FixedUpdate() //take the input variables and convert them into movements of the player.
