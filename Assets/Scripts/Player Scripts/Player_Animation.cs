@@ -8,6 +8,7 @@ public class Player_Animation : MonoBehaviour
 {
 
     public Animator animator;
+    PlayerLocomotion playerLocomotion;
     int horizontal, vertical;
 
     
@@ -17,7 +18,9 @@ public class Player_Animation : MonoBehaviour
      
         animator = transform.GetChild(0).GetComponent<Animator>();
         horizontal = Animator.StringToHash("x");
-        vertical = Animator.StringToHash("y"); 
+        vertical = Animator.StringToHash("y");
+
+        playerLocomotion = GetComponent<PlayerLocomotion>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,12 @@ public class Player_Animation : MonoBehaviour
         /* Essentially just */
         /** y = verticalInput; or y = movementInput.y; **/
         /** x = horizontalInput; or x = movementInput.x; **/
+        print("Horizontal Movement = " + horizontalMovement);
+        print("Vertical Movement = " + verticalMovement);
+
+        /* Is the dog sprinting? (A component of InputManager */
+        animator.SetBool("IsSprinting", playerLocomotion.isSprinting);
+        print(playerLocomotion.isSprinting);
 
         #region Snapped Horizontal
         if (horizontalMovement > 0 && horizontalMovement < 0.55f)
@@ -83,7 +92,5 @@ public class Player_Animation : MonoBehaviour
 
         // animator.SetBool("IsWalking", isWalking);
 
-        /* Is the dog sprinting? (A component of InputManager */
-        // animator.SetBool("IsSprinting", playerLocomotion.isSprinting); 
     }
 }
