@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaterManager : MonoBehaviour
 {
@@ -15,8 +16,16 @@ public class WaterManager : MonoBehaviour
     [Header("Thirst Decrease Rate")]
     public float timer = 0;
     public float value = .1f;
+    public TextMeshProUGUI thirstMeterUIText;
+    public TextMeshProUGUI youDiedOfThirst;
 
     private float starttime = 1;
+
+    private void Start()
+    {
+        SetThirstText();
+        youDiedOfThirst.alpha = 0f;
+    }
 
     private void Awake()
     {
@@ -41,17 +50,25 @@ public class WaterManager : MonoBehaviour
     void lowerThirst()
     {
         thirst -= value;
+        SetThirstText();
         if (thirst < 6)
         {
             playerLocomotion.movementSpeed -= value;
             playerLocomotion.sprintSpeed -= value;
         }
-        if (thirst < 1 && !dead) {dead = true; StartCoroutine(dieofThirst());}
+        if (thirst < 1 && !dead) { dead = true; StartCoroutine(dieofThirst()); }
+    }
+
+    void SetThirstText()
+    {
+        thirstMeterUIText.text = "Thirst Level: " + Mathf.Round(thirst).ToString() + " / 100";
     }
 
     IEnumerator dieofThirst()
     {
+        thirstMeterUIText.text = "Thirst Level: 0 / 100";
         float deathtimer = 7f;
+        youDiedOfThirst.alpha = 100;
         cameraFade.Fade(.1f);
         Debug.Log(Time.deltaTime);
         yield return new WaitForSeconds(deathtimer);
@@ -64,6 +81,12 @@ public class WaterManager : MonoBehaviour
         thirst = 10;
         inCanyon = false;
         dead = false;
+        youDiedOfThirst.alpha = 0;
+        SetThirstText();
+
+        //Must reset movement speed as well or else Player will continue to walk slowly backwards!
+        playerLocomotion.movementSpeed = 5;
+        playerLocomotion.sprintSpeed = 7;
     }
 
     void OnTriggerEnter(Collider other)
