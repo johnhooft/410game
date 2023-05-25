@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - PickUp_Key
   - Hat
+  - Canyon Entrance
   layers:
   - Default
   - TransparentFX
