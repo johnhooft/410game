@@ -35,8 +35,8 @@ public class Player_Animation : MonoBehaviour
         print("Vertical Movement = " + verticalMovement);
 
         /* Is the dog sprinting? (A component of InputManager */
-        animator.SetBool("IsSprinting", playerLocomotion.isSprinting);
-        print(playerLocomotion.isSprinting);
+        animator.SetBool("IsGrounded", playerLocomotion.isGrounded);
+        print(playerLocomotion.isGrounded);
 
         #region Snapped Horizontal
         if (horizontalMovement > 0 && horizontalMovement < 0.55f)
