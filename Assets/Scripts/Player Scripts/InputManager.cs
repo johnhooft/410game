@@ -12,9 +12,10 @@ public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
     PlayerLocomotion playerLocomotion;
-    // Player_Animation playerAnimation;
+    Player_Animation playerAnimation;
 
     public Vector2 movementInput;
+    private float moveAmount;
     public Vector2 cameraInput;
     
     public float cameraInputX;
@@ -29,7 +30,7 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
-        // player_Animation = GetComponent<Player_Animation>();
+        playerAnimation = GetComponent<Player_Animation>();
     }
     private void OnEnable()
     {
@@ -76,7 +77,8 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
-
+        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        playerAnimation.HandleAnimation(0, moveAmount);
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
 
