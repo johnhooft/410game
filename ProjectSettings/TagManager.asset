@@ -9,6 +9,7 @@ TagManager:
   - MiniGame 1
   - Enemy
   - PickUp_Key
+  - Hat
   layers:
   - Default
   - TransparentFX

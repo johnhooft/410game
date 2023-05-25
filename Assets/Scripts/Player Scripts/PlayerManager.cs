@@ -73,13 +73,12 @@ public class PlayerManager : MonoBehaviour
                 SetKeyText();
             }
         }
+        if (other.gameObject.CompareTag("Hat")) 
+        {
+            StaticPlayerInfo.cowboyhat = true;
+            other.gameObject.SetActive(false);
+        }
 
-        /* 
-	// If the player falls off the edge it resets the scene.
-		// NOTE: This was included specifically for the PoC build.
-		// We can remove this line of code if we don't need it later on.
-        else if (other.gameObject.CompareTag("Respawn")) { SceneManager.LoadScene(0); }
-        */
     }
 
     void SetKeyText() // Updating UI Text
