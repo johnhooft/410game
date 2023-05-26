@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonGameManager : MonoBehaviour
+public class AimCanon : MonoBehaviour
 {
     FireCanon fireCanon;
     public GameObject Barrel;
@@ -51,7 +51,7 @@ public class CannonGameManager : MonoBehaviour
     canonRotation.z = Barrel.transform.eulerAngles.z;
     if (canonRotation.z > 180) {canonRotation.z -= 360;}
 
-    // Apply rotations to the barrel
+    /*
     if (canonRotation.z < maxZRotate && canonRotation.z > -maxZRotate)
     {
         Barrel.transform.Rotate(Vector3.up, yRotation);
@@ -60,11 +60,14 @@ public class CannonGameManager : MonoBehaviour
     {
         Barrel.transform.Rotate(Vector3.forward, zRotation);
     }
+    */
+
+    Barrel.transform.Rotate(Vector3.up, yRotation);
+    Barrel.transform.Rotate(Vector3.forward, zRotation);
 }
 
     void getAimInput()
     {
-        Debug.Log("here");
         if (Input.GetKeyDown(KeyCode.UpArrow)) {up = true;}
         if (Input.GetKeyDown(KeyCode.DownArrow)) {down = true;}
         if (Input.GetKeyUp(KeyCode.UpArrow)) {up = false;}

@@ -13,7 +13,11 @@ public class BulletManager : MonoBehaviour
  
     void OnCollisionEnter(Collision collision)
     {
-        // if (collision.compareTag("target") then do something)
         Destroy(gameObject, life);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp")) {Destroy(other.gameObject); StaticLevel2Info.targetsHit++;}
     }
 }
