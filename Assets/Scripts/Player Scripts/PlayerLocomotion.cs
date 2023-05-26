@@ -75,14 +75,6 @@ public class PlayerLocomotion : MonoBehaviour
         AlignWithTerrain();
         HandleMovement();
         HandleRotation();
-        HandleAnimation();
-    }
-
-    void HandleAnimation()
-    {
-        bool isWalking = inputManager.horizontalInput != 0 || inputManager.verticalInput != 0;
-        //Debug.Log(isWalking);
-        animator.SetBool("IsWalking", isWalking);
     }
 
     private void AlignWithTerrain()
