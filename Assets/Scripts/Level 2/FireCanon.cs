@@ -26,4 +26,10 @@ public class FireCanon : MonoBehaviour
             playerByCanon = true;
         }
     }
+    
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player")) {playerByCanon = false;}
+    }
+    
 }
