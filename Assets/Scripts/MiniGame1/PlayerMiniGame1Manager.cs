@@ -54,7 +54,10 @@ public class PlayerMiniGame1Manager : MonoBehaviour
             count += 1;
             SetCountText();
         }
+    }
 
+    void OnCollisionEnter(Collision other) 
+    {
         if (other.gameObject.CompareTag("Enemy"))
         {
             health--;
