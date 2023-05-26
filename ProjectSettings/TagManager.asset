@@ -11,6 +11,7 @@ TagManager:
   - PickUp_Key
   - Hat
   - Canyon Entrance
+  - Water
   layers:
   - Default
   - TransparentFX

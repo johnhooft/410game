@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Level1Manager : MonoBehaviour
 {
     public GameObject door;
-    // Start is called before the first frame update
+    public TextMeshProUGUI redBoneUIText;
+    
     void Start()
     {
-
+        StaticPlayerInfo.redBones = GameObject.FindGameObjectsWithTag("PickUp_Key");
+        StaticPlayerInfo.redBoneMaxCount = StaticPlayerInfo.redBones.Length;
+        SetKeyText();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Debug.Log("Minigame 1  completion = " + MiniGame1Completion);   
@@ -25,6 +28,29 @@ public class Level1Manager : MonoBehaviour
             door.SetActive(false);
             //Debug.Log("minigamedone");
 
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp") || other.gameObject.CompareTag("PickUp_Key"))
+        {
+            other.gameObject.SetActive(false);
+            if (other.gameObject.CompareTag("PickUp_Key"))
+            {
+                StaticPlayerInfo.redBoneCount++;
+                SetKeyText();
+            }
+        }
+    }
+
+    void SetKeyText() // Updating UI Text
+    {
+        redBoneUIText.text = "Red Bones: " + StaticPlayerInfo.redBoneCount.ToString() + " / " + StaticPlayerInfo.redBoneMaxCount.ToString();
+        if (StaticPlayerInfo.redBoneCount >= StaticPlayerInfo.redBoneMaxCount)
+        {
+            StaticPlayerInfo.allBonesCollected = true;
+            //Debug.Log("Hooray! Collected All Bones!");
         }
     }
 }

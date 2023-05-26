@@ -91,9 +91,7 @@ public class WaterManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Canyon Entrance"))
-        {
-            inCanyon = true;
-        }
+        if (other.gameObject.CompareTag("Canyon Entrance")) {inCanyon = true;}
+        if (other.gameObject.CompareTag("Water")) {thirst = 100; SetThirstText();}
     }
 }

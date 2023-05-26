@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 79515bd2a04cc49b78ae496e938bb79f, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 70f1fbbec25a32b468ffc334f5f6dca3, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1776,13 +1776,14 @@ MonoBehaviour:
   maxSlopeAngle: 55
   angleTime: 0.2
   triggerAngle: 4
-  terrainAngleMultiplier: -0.35
+  terrainAngleMultiplier: -0.1
   showDebug: 0
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
   fallingVelocity: 400
   rayCastHeightOffset: 0.45
+  rayCastJumpHeightOffset: 0.25
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -1792,10 +1793,11 @@ MonoBehaviour:
   rotationSpeed: 10
   isGrounded: 1
   isJumping: 0
+  canJump: 0
   isSprinting: 0
   jumpHeight: 50
   gravityIntensity: -15
-  animator: {fileID: 1735080944}
+  animator: {fileID: 0}
 --- !u!114 &1728208257
 MonoBehaviour:
   m_ObjectHideFlags: 0

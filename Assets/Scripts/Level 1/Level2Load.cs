@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MiniGame1 : MonoBehaviour
+public class Level2Load : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) {SceneManager.LoadScene(1);}
+        if (other.gameObject.CompareTag("Player")) {SceneManager.LoadScene(2);}
     }
 }
