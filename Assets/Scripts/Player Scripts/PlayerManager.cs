@@ -25,8 +25,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        StaticPlayerInfo.redBones = GameObject.FindGameObjectsWithTag("PickUp_Key");
-        StaticPlayerInfo.redBoneMaxCount = StaticPlayerInfo.redBones.Length;
+        
     }
 
     private void Awake() // get various components from object that it is attached too.

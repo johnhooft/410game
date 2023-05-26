@@ -10,6 +10,8 @@ public class Level1Manager : MonoBehaviour
     
     void Start()
     {
+        StaticPlayerInfo.redBones = GameObject.FindGameObjectsWithTag("PickUp_Key");
+        StaticPlayerInfo.redBoneMaxCount = StaticPlayerInfo.redBones.Length;
         SetKeyText();
     }
 

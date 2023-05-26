@@ -12,7 +12,7 @@ public class StaticPlayerInfo : MonoBehaviour
     // Collectibles!
     static public int redBoneCount = 0;
     static public GameObject[] redBones;
-    static public int redBoneMaxCount = 3;
+    static public int redBoneMaxCount;
     static public bool allBonesCollected = false;
 
     // Easter Eggs
