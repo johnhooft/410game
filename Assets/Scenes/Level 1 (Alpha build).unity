@@ -4117,6 +4117,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d25a714de0a80d34685f862aa8ab9cde, type: 2}
+    - target: {fileID: 95309333027228916, guid: d01860e3738168b4392c15acbc1b5d47, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01860e3738168b4392c15acbc1b5d47, type: 3}
 --- !u!4 &569552063 stripped
@@ -6618,6 +6622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1761321944}
+  redBoneUIText: {fileID: 689553750}
 --- !u!114 &838804867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6668,7 +6673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c134758ada2b54fcdbd2f8ca8f4e7ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redBoneUIText: {fileID: 689553750}
 --- !u!114 &838804871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6688,13 +6692,14 @@ MonoBehaviour:
   maxSlopeAngle: 55
   angleTime: 0.2
   triggerAngle: 4
-  terrainAngleMultiplier: -0.35
+  terrainAngleMultiplier: -0.1
   showDebug: 0
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
   fallingVelocity: 400
   rayCastHeightOffset: 0.45
+  rayCastJumpHeightOffset: 0.25
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -6704,10 +6709,11 @@ MonoBehaviour:
   rotationSpeed: 10
   isGrounded: 1
   isJumping: 0
+  canJump: 0
   isSprinting: 0
   jumpHeight: 50
   gravityIntensity: -15
-  animator: {fileID: 569552065}
+  animator: {fileID: 0}
 --- !u!114 &838804872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6722,7 +6728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundSlopeAngle: 0
   groundSlopeDir: {x: 0, y: 0, z: 0}
-  showDebug: 1
+  showDebug: 0
   castingMask:
     serializedVersion: 2
     m_Bits: 9

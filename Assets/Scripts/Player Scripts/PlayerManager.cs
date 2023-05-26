@@ -23,14 +23,10 @@ public class PlayerManager : MonoBehaviour
     PlayerLocomotion playerLocomotion;
     Rigidbody playerRigidbody;
 
-    // Red Bone Counter
-    public TextMeshProUGUI redBoneUIText;
-
     private void Start()
     {
         StaticPlayerInfo.redBones = GameObject.FindGameObjectsWithTag("PickUp_Key");
         StaticPlayerInfo.redBoneMaxCount = StaticPlayerInfo.redBones.Length;
-        SetKeyText();
     }
 
     private void Awake() // get various components from object that it is attached too.
@@ -64,30 +60,11 @@ public class PlayerManager : MonoBehaviour
     // Collectibles!
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PickUp") || other.gameObject.CompareTag("PickUp_Key"))
-        {
-            other.gameObject.SetActive(false);
-            if (other.gameObject.CompareTag("PickUp_Key"))
-            {
-                StaticPlayerInfo.redBoneCount++;
-                SetKeyText();
-            }
-        }
         if (other.gameObject.CompareTag("Hat")) 
         {
             StaticPlayerInfo.cowboyhat = true;
             other.gameObject.SetActive(false);
         }
 
-    }
-
-    void SetKeyText() // Updating UI Text
-    {
-        redBoneUIText.text = "Red Bones: " + StaticPlayerInfo.redBoneCount.ToString() + " / " + StaticPlayerInfo.redBoneMaxCount.ToString();
-        if (StaticPlayerInfo.redBoneCount >= StaticPlayerInfo.redBoneMaxCount)
-        {
-            StaticPlayerInfo.allBonesCollected = true;
-            //Debug.Log("Hooray! Collected All Bones!");
-        }
     }
 }

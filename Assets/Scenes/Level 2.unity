@@ -2591,7 +2591,7 @@ MonoBehaviour:
   angleTime: 0.2
   triggerAngle: 4
   terrainAngleMultiplier: -0.1
-  showDebug: 1
+  showDebug: 0
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
@@ -2698,7 +2698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundSlopeAngle: 0
   groundSlopeDir: {x: 0, y: 0, z: 0}
-  showDebug: 1
+  showDebug: 0
   castingMask:
     serializedVersion: 2
     m_Bits: 9
