@@ -2590,13 +2590,14 @@ MonoBehaviour:
   maxSlopeAngle: 55
   angleTime: 0.2
   triggerAngle: 4
-  terrainAngleMultiplier: -0.35
-  showDebug: 0
+  terrainAngleMultiplier: -0.1
+  showDebug: 1
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
   fallingVelocity: 400
   rayCastHeightOffset: 0.45
+  rayCastJumpHeightOffset: 0.25
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -2606,6 +2607,7 @@ MonoBehaviour:
   rotationSpeed: 10
   isGrounded: 1
   isJumping: 0
+  canJump: 0
   isSprinting: 0
   jumpHeight: 50
   gravityIntensity: -15

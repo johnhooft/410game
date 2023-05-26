@@ -36,6 +36,7 @@ public class PlayerLocomotion : MonoBehaviour
     public float leapingVelocity;
     public float fallingVelocity;
     public float rayCastHeightOffset = 0.5f;
+    public float rayCastJumpHeightOffset = 0.55f;
     public LayerMask groundLayer;
 
     [Header("Movement Speeds")]
@@ -47,6 +48,7 @@ public class PlayerLocomotion : MonoBehaviour
     [Header("Movement Flags")]
     public bool isGrounded;
     public bool isJumping;
+    public bool canJump;
     public bool isSprinting;
 
     [Header("Jumping Speeds")]
@@ -156,6 +158,10 @@ public class PlayerLocomotion : MonoBehaviour
         Vector3 rayCastOrigin = transform.position;
         rayCastOrigin.y = rayCastOrigin.y + rayCastHeightOffset;
 
+        RaycastHit hit2;
+        Vector3 rayCastOrigin2 = transform.position;
+        rayCastOrigin2.y = rayCastOrigin2.y + rayCastJumpHeightOffset;
+
         if (!isGrounded && !isJumping)
         {
             inAirTimer = inAirTimer + Time.deltaTime;
@@ -163,59 +169,33 @@ public class PlayerLocomotion : MonoBehaviour
             playerRigidbody.AddForce(transform.forward * leapingVelocity);
             if (playerRigidbody.velocity.y != 0) {playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer);}
         }
-        if (Physics.SphereCast(rayCastOrigin, 0.2f, Vector3.down, out hit, 0.3f, groundLayer))
+        if (Physics.SphereCast(rayCastOrigin2, 0.2f, Vector3.down, out hit2, 0.3f, groundLayer))
         {
-            // print red line of raycast.
-            if (showDebug) { Debug.DrawLine(rayCastOrigin, hit.point, Color.red); }
-            inAirTimer = 0;
-            isGrounded = true;
-            isJumping = false;
+            canJump = true;
+            if (showDebug) { Debug.DrawLine(rayCastOrigin2, hit2.point, Color.yellow); }
+            if (Physics.SphereCast(rayCastOrigin, 0.2f, Vector3.down, out hit, 0.3f, groundLayer))
+            {
+                // print red line of raycast.
+                if (showDebug) { Debug.DrawLine(rayCastOrigin, hit.point, Color.red); }
+                inAirTimer = 0;
+                isGrounded = true;
+                isJumping = false;
+            }
         }
+
         else
         {
             isGrounded = false;
             isJumping = false;
+            canJump = false;
         }
     }
     public void HandleJump()
     {
-        if (isGrounded)
+        if (canJump)
         {
             isJumping = true;
             playerRigidbody.AddForce(Vector3.up * Mathf.Sqrt(jumpHeight * -2f * gravityIntensity), ForceMode.Impulse);
         }
     }
-/*
-    void OnSubmit()
-    {
-        if(Vector3.Distance(player.transform.position,other_dog.transform.position)<2)
-        {
-            
-            text();
-        }
-
-
-
-
-    }
-*/
-
-
-
-/*
-    void text()
-    {
-        dogtext.text = "Im Hungry maybe if you grab some of those brown mushrooms for me I can help you get that the pickup above me";
-        dogtext.enabled = true;
-        int i = 0;
-        while(i<1000)
-        {
-            
-            i++;
-
-        }
-        dogtext.enabled = false;
-
-    }
-    */
 }
