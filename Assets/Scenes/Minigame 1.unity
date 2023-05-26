@@ -1711,12 +1711,13 @@ GameObject:
   - component: {fileID: 1728208253}
   - component: {fileID: 1728208257}
   - component: {fileID: 1728208255}
-  - component: {fileID: 1728208254}
   - component: {fileID: 1728208258}
   - component: {fileID: 1728208259}
   - component: {fileID: 1728208260}
   - component: {fileID: 1728208261}
+  - component: {fileID: 1728208254}
   - component: {fileID: 1728208262}
+  - component: {fileID: 1728208263}
   m_Layer: 6
   m_Name: 'Player '
   m_TagString: Untagged
@@ -1772,16 +1773,16 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   playerAngle: 0
   playerTilt: 0
-  maxSlopeAngle: 13
+  maxSlopeAngle: 55
   angleTime: 0.2
-  triggerAngle: 1
-  terrainAngleMultiplier: -0.25
+  triggerAngle: 4
+  terrainAngleMultiplier: -0.35
   showDebug: 0
   inAirTimer: 0
   maxinAirTime: 2
   leapingVelocity: 1
   fallingVelocity: 400
-  rayCastHeightOffset: 0.35
+  rayCastHeightOffset: 0.45
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -1892,6 +1893,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9159502, y: 1.9331634, z: 1.4629868}
   m_Center: {x: 0.042349398, y: 0.4665817, z: 0.17654675}
+--- !u!114 &1728208263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728208252}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86b85bb0dd850243be2e935c882aae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1735080944}
 --- !u!1001 &1735080940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1971,6 +1985,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95309333027228916, guid: d01860e3738168b4392c15acbc1b5d47, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d25a714de0a80d34685f862aa8ab9cde, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01860e3738168b4392c15acbc1b5d47, type: 3}
 --- !u!4 &1735080941 stripped
