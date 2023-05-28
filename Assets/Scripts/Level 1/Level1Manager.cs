@@ -12,6 +12,11 @@ public class Level1Manager : MonoBehaviour
     {
         StaticPlayerInfo.redBones = GameObject.FindGameObjectsWithTag("PickUp_Key");
         StaticPlayerInfo.redBoneMaxCount = StaticPlayerInfo.redBones.Length;
+        if (!StaticPlayerInfo.MiniGame1Completion) {
+            StaticPlayerInfo.activeRedBones = new bool[StaticPlayerInfo.redBoneMaxCount];
+            CheckActive();
+        }
+        RemoveInactiveKeys();
         SetKeyText();
     }
 
@@ -35,12 +40,28 @@ public class Level1Manager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PickUp") || other.gameObject.CompareTag("PickUp_Key"))
         {
-            other.gameObject.SetActive(false);
+            other.gameObject.SetActive(false); CheckActive();
             if (other.gameObject.CompareTag("PickUp_Key"))
             {
                 StaticPlayerInfo.redBoneCount++;
                 SetKeyText();
             }
+        }
+    }
+
+    void RemoveInactiveKeys()
+    {
+        for (int i = 0; i < StaticPlayerInfo.redBoneMaxCount; i++)
+        {
+            if (!StaticPlayerInfo.activeRedBones[i]) { StaticPlayerInfo.redBones[i].SetActive(false); }
+        }
+    }
+
+    void CheckActive()
+    {
+        for (int i = 0; i < StaticPlayerInfo.redBoneMaxCount; i++)
+        {
+            StaticPlayerInfo.activeRedBones[i] = StaticPlayerInfo.redBones[i].activeSelf;
         }
     }
 
