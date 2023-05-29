@@ -9,6 +9,7 @@ public class speech2 : MonoBehaviour
     //public GameObject bone;
     public GameObject bridge;
     public GameObject text2;
+    public GameObject speechPanel;
     static public bool MiniGame1Completion = false;
     
     // Update is called once per frame
@@ -16,12 +17,14 @@ public class speech2 : MonoBehaviour
     {
         text.SetActive(false);
         text2.SetActive(false);
+        speechPanel.SetActive(false);
     }
     void OnTriggerEnter(Collider player)
     {
         //if(player.gameObject.tag == "Player" && bone.activeSelf == true)
         if(player.gameObject.tag == "Player" && !StaticPlayerInfo.allBonesCollected)
         {
+            speechPanel.SetActive(true);
             text.SetActive(true);
             StartCoroutine("WaitForSec");
 
@@ -29,6 +32,7 @@ public class speech2 : MonoBehaviour
         //else if(player.gameObject.tag == "Player" && bone.activeSelf == false)
         else if(player.gameObject.tag == "Player" && StaticPlayerInfo.allBonesCollected)
         {
+            speechPanel.SetActive(true);
             text2.SetActive(true);
             StartCoroutine("WaitForSec");
         }
@@ -40,6 +44,7 @@ public class speech2 : MonoBehaviour
         if(!StaticPlayerInfo.allBonesCollected)
         {
         yield return new WaitForSeconds(7);
+        speechPanel.SetActive(false);
         text.SetActive(false);
         }
         //else if( bone.activeSelf == false)
@@ -47,7 +52,8 @@ public class speech2 : MonoBehaviour
         {
         bridge.SetActive(false);
         yield return new WaitForSeconds(7);
-        text.SetActive(false);
+        speechPanel.SetActive(false);
+        text2.SetActive(false);
         
 
         }

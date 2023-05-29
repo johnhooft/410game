@@ -18,6 +18,7 @@ public class WaterManager : MonoBehaviour
     public float value = .1f;
     public TextMeshProUGUI thirstMeterUIText;
     public TextMeshProUGUI youDiedOfThirst;
+    public GameObject deathPanel;
 
     private float starttime = 1;
 
@@ -25,6 +26,7 @@ public class WaterManager : MonoBehaviour
     {
         SetThirstText();
         youDiedOfThirst.alpha = 0f;
+        deathPanel.SetActive(false);
     }
 
     private void Awake()
@@ -68,6 +70,7 @@ public class WaterManager : MonoBehaviour
     {
         thirstMeterUIText.text = "Thirst Level: 0 / 100";
         float deathtimer = 7f;
+        deathPanel.SetActive(true);
         youDiedOfThirst.alpha = 100;
         cameraFade.Fade(.1f);
         Debug.Log(Time.deltaTime);
@@ -81,6 +84,7 @@ public class WaterManager : MonoBehaviour
         thirst = 10;
         inCanyon = false;
         dead = false;
+        deathPanel.SetActive(false);
         youDiedOfThirst.alpha = 0;
         SetThirstText();
 

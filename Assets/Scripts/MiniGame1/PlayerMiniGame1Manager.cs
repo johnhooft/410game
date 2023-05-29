@@ -20,9 +20,9 @@ public class PlayerMiniGame1Manager : MonoBehaviour
         SetCountText();
     }
 
-    void SetHealthText ()
+    void SetHealthText()
     {
-        healthText.text = "Health: " + health.ToString();
+        healthText.text = "Health: " + health.ToString() + " / 3";
         if (health < 1)
         {
             ReloadScene();
@@ -31,7 +31,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Bones Collected: " + count.ToString() + "/12";
+        countText.text = "Bones: " + count.ToString() + " / 12";
         if(count >= 12)
         {
             StaticPlayerInfo.MiniGame1Completion = true;
