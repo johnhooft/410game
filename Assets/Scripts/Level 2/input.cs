@@ -8,6 +8,8 @@ public class input : MonoBehaviour
 {
     private string inputs;
     public GameObject inputfield;
+    public InputManager inputManager;
+    public bool inRiddle = false;
     private string[] riddles = new string [3];
     private string[] answers = new string [3];
     public TMP_Text  textElement;
@@ -43,26 +45,25 @@ public class input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-
+        if (inRiddle && Input.GetKeyDown(KeyCode.Escape)) {inRiddle = false; exitRiddle();}
     }
     void OnTriggerEnter(Collider player)
     {
         if(flag == 0)
         {
-            if(player.gameObject.tag == "Player")
+            if(player.gameObject.tag == "Player" && !inRiddle)
             {
                 //if(flag2 == 0)
-                //{
                 riddle = Riddle();
                 textElement.text= riddles[riddle];
                 textElement2.text = "To pass you must first solve one of my riddles";
                 Text.SetActive(true);
                 Text2.SetActive(true);
-           
+
                 inputfield.SetActive(true);
                 main_input_field.ActivateInputField();
+                inputManager.OnDisable();
+                inRiddle = true;
                 StartCoroutine(WaitForSec());
                 //}
             //(player.GetComponent(scr) as MonoBehaviour).enabled = false;
@@ -81,23 +82,20 @@ public class input : MonoBehaviour
             //(player.GetComponent(scr) as MonoBehaviour).enabled = true;
             dogstopper.SetActive(false);
             Destroy(Text2);
-            Destroy(inputfield);
-
+            //Destroy(inputfield);
+            inputfield.SetActive(false);
+            inputManager.OnEnable();
             StartCoroutine(WaitForSec2());
         }
         else if(inputs =="")
         {
         ;   
         }
-        else{
+        else
+        {
             Faliure_Text.text = "Try again";
             StartCoroutine(WaitForSec3());
-            }
-
-
-        
-
-        
+        }
         
     }
     private int Riddle()
@@ -116,8 +114,19 @@ public class input : MonoBehaviour
         inputfield.SetActive(false);
         Text.SetActive(false);
         Text2.SetActive(false);
+        inRiddle = false;
         flag = 0;
         
+    }
+
+    public void exitRiddle()
+    {
+        inputfield.SetActive(false);
+        Text.SetActive(false);
+        Text2.SetActive(false);
+        inRiddle = false;
+        inputManager.OnEnable();
+        flag = 0;
     }
     IEnumerator WaitForSec2()
     {

@@ -11236,6 +11236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputfield: {fileID: 1229694987}
+  inputManager: {fileID: 683036292}
+  inRiddle: 0
   textElement: {fileID: 1760431967}
   textElement2: {fileID: 2079368894}
   Faliure_Text: {fileID: 1380485973}
@@ -11257,6 +11259,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.656604, y: 1.0255963, z: 1.9029613}
   m_Center: {x: -0.077313416, y: 0.5127984, z: 0.20891163}
+--- !u!64 &2132207553
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132207547}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300020, guid: 48dc4c6cddf48a943bf7251f1ba06c05, type: 3}
 --- !u!1001 &2138164573
 PrefabInstance:
   m_ObjectHideFlags: 0

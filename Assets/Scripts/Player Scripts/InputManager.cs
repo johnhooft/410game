@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerAnimation = GetComponent<Player_Animation>();
     }
-    private void OnEnable()
+    public void OnEnable()
     {
         if (playerControls == null)
         {
@@ -47,8 +47,10 @@ public class InputManager : MonoBehaviour
         playerControls.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
+        movementInput.x = 0;
+        movementInput.y = 0;
         playerControls.Disable();
     }
 
