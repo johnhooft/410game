@@ -11,11 +11,11 @@ public class WaterManager : MonoBehaviour
     public CameraFade cameraFade;
     public bool inCanyon = false;
     [Header("Thirst Levels")]
-    public float thirst = 10;
+    public float thirst = 100;
     public float maxThirst = 100;
     [Header("Thirst Decrease Rate")]
     public float timer = 0;
-    public float value = .1f;
+    public float value = .05f;
     public TextMeshProUGUI thirstMeterUIText;
     public TextMeshProUGUI youDiedOfThirst;
     public GameObject deathPanel;
@@ -81,7 +81,7 @@ public class WaterManager : MonoBehaviour
         //print on UI that you died of thirst;
 
         //reset thirst and incanyon bool
-        thirst = 10;
+        thirst = 100;
         inCanyon = false;
         dead = false;
         deathPanel.SetActive(false);
