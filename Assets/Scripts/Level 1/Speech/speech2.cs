@@ -40,26 +40,21 @@ public class speech2 : MonoBehaviour
     }
     IEnumerator WaitForSec()
     {
-        //if( bone.activeSelf == true)
-        if(!StaticPlayerInfo.allBonesCollected)
-        {
         yield return new WaitForSeconds(7);
         speechPanel.SetActive(false);
+        //if( bone.activeSelf == true)
+        if (!StaticPlayerInfo.allBonesCollected)
+        {
         text.SetActive(false);
         }
         //else if( bone.activeSelf == false)
         else if(StaticPlayerInfo.allBonesCollected)
         {
         bridge.SetActive(false);
-        yield return new WaitForSeconds(7);
-        speechPanel.SetActive(false);
         text2.SetActive(false);
-        
-
         }
 
-
     }
-   
+
 }
 
