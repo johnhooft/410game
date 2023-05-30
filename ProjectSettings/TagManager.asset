@@ -12,6 +12,8 @@ TagManager:
   - Hat
   - Canyon Entrance
   - Water
+  - lvl3Border
+  - level3Entrance
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - UI
   - Player
   - Post Pro
-  - 
+  - Ignore
   - 
   - 
   - 
