@@ -58,7 +58,8 @@ public class input : MonoBehaviour
                 riddle = Riddle();
                 textElement.text= riddles[riddle];
                 textElement2.text = "To pass you must first solve one of my riddles";
-            
+                Text.SetActive(true);
+                Text2.SetActive(true);
            
                 inputfield.SetActive(true);
                 main_input_field.ActivateInputField();
@@ -83,7 +84,11 @@ public class input : MonoBehaviour
             Destroy(inputfield);
 
             StartCoroutine(WaitForSec2());
-        }    
+        }
+        else if(inputs =="")
+        {
+        ;   
+        }
         else{
             Faliure_Text.text = "Try again";
             StartCoroutine(WaitForSec3());
@@ -117,6 +122,7 @@ public class input : MonoBehaviour
     IEnumerator WaitForSec2()
     {
         flag = 1;
+        Destroy(Faliure_Text);
         yield return new WaitForSeconds(8);
         Destroy(Text);
         Destroy(Text2);
