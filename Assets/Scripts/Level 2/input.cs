@@ -81,8 +81,9 @@ public class input : MonoBehaviour
             textElement.text = "Congrats you have solved my riddle, you may pass" ;
             //(player.GetComponent(scr) as MonoBehaviour).enabled = true;
             dogstopper.SetActive(false);
-            Destroy(Text2);
+            //Destroy(Text2);
             //Destroy(inputfield);
+            Text2.SetActive(false);
             inputfield.SetActive(false);
             inputManager.OnEnable();
             StartCoroutine(WaitForSec2());

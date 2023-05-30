@@ -51,6 +51,7 @@ public class InputManager : MonoBehaviour
     {
         movementInput.x = 0;
         movementInput.y = 0;
+        playerLocomotion.isSprinting = false;
         playerControls.Disable();
     }
 
