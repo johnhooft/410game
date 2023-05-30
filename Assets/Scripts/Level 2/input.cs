@@ -12,6 +12,7 @@ public class input : MonoBehaviour
     private string[] answers = new string [3];
     public TMP_Text  textElement;
     public TMP_Text textElement2;
+    public TMP_Text Faliure_Text;
     private int riddle;
     public TMP_InputField main_input_field;
     public GameObject player;
@@ -82,14 +83,17 @@ public class input : MonoBehaviour
             Destroy(inputfield);
 
             StartCoroutine(WaitForSec2());
-            
+        }    
+        else{
+            Faliure_Text.text = "Try again";
+            StartCoroutine(WaitForSec3());
+            }
 
 
-        }
         
 
-
-
+        
+        
     }
     private int Riddle()
     {
@@ -118,4 +122,13 @@ public class input : MonoBehaviour
         Destroy(Text2);
     }
     
+    IEnumerator WaitForSec3()
+    {
+        yield return new WaitForSeconds(10);
+        Faliure_Text.text = "";
+
+
+    }
+
+
 }
