@@ -10,6 +10,7 @@ public class WaterManager : MonoBehaviour
     public bool die = false;
     public CameraFade cameraFade;
     public bool inCanyon = false;
+    public bool drunk = false;
     [Header("Thirst Levels")]
     public float thirst = 100;
     public float maxThirst = 100;
@@ -96,6 +97,10 @@ public class WaterManager : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Canyon Entrance")) {inCanyon = true;}
-        if (other.gameObject.CompareTag("Water")) {thirst = 100; SetThirstText();}
+        if (other.gameObject.CompareTag("Water")) {
+            thirst = 100; 
+            drunk = true; 
+            SetThirstText();
+        }
     }
 }
