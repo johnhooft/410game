@@ -24,6 +24,7 @@ public class input : MonoBehaviour
     public GameObject Text2;
     private int flag;
     private int flag2;
+    private int Riddle_solved;
 
 
     // Start is called before the first frame update
@@ -49,29 +50,31 @@ public class input : MonoBehaviour
     }
     void OnTriggerEnter(Collider player)
     {
-        if(flag == 0)
+        if(Riddle_solved == 0)
         {
-            if(player.gameObject.tag == "Player" && !inRiddle)
+            if(flag == 0)
             {
-                //if(flag2 == 0)
-                riddle = Riddle();
-                textElement.text= riddles[riddle];
-                textElement2.text = "To pass you must first solve one of my riddles";
-                Text.SetActive(true);
-                Text2.SetActive(true);
+                if(player.gameObject.tag == "Player" && !inRiddle)
+                {
+                    //if(flag2 == 0)
+                    riddle = Riddle();
+                    textElement.text= riddles[riddle];
+                    textElement2.text = "To pass you must first solve one of my riddles";
+                    Text.SetActive(true);
+                    Text2.SetActive(true);
 
-                inputfield.SetActive(true);
-                main_input_field.ActivateInputField();
-                inputManager.OnDisable();
-                inRiddle = true;
-                StartCoroutine(WaitForSec());
+                    inputfield.SetActive(true);
+                    main_input_field.ActivateInputField();
+                    inputManager.OnDisable();
+                    inRiddle = true;
+                    StartCoroutine(WaitForSec());
                 //}
             //(player.GetComponent(scr) as MonoBehaviour).enabled = false;
 
 
+                }
             }
         }
-
     }
     public void ReadStringInput(string s)
     {
@@ -132,10 +135,11 @@ public class input : MonoBehaviour
     IEnumerator WaitForSec2()
     {
         flag = 1;
+        Riddle_solved = 1;
         Destroy(Faliure_Text);
         yield return new WaitForSeconds(8);
-        Destroy(Text);
-        Destroy(Text2);
+        Text.SetActive(false);
+        Text2.SetActive(false);
     }
     
     IEnumerator WaitForSec3()
