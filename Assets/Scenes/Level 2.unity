@@ -3633,6 +3633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ff12c933f424e26a1bd1179484ce6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputManager: {fileID: 683036292}
+  riddleinput: {fileID: 2132207549}
   dead: 0
   die: 0
   cameraFade: {fileID: 1480377169}

@@ -67,7 +67,7 @@ public class input : MonoBehaviour
                     main_input_field.ActivateInputField();
                     inputManager.OnDisable();
                     inRiddle = true;
-                    StartCoroutine(WaitForSec());
+                    //StartCoroutine(WaitForSec());
                 //}
             //(player.GetComponent(scr) as MonoBehaviour).enabled = false;
 
@@ -98,7 +98,7 @@ public class input : MonoBehaviour
         else
         {
             Faliure_Text.text = "Try again...";
-            StartCoroutine(WaitForSec3());
+            exitRiddle();
         }
         
     }
@@ -141,14 +141,5 @@ public class input : MonoBehaviour
         Text.SetActive(false);
         Text2.SetActive(false);
     }
-    
-    IEnumerator WaitForSec3()
-    {
-        yield return new WaitForSeconds(10);
-        Faliure_Text.text = "";
-
-
-    }
-
 
 }

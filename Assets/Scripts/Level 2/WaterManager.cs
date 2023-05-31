@@ -6,6 +6,8 @@ using TMPro;
 public class WaterManager : MonoBehaviour
 {
     PlayerLocomotion playerLocomotion;
+    public InputManager inputManager;
+    public input riddleinput;
     public bool dead = false;
     public bool die = false;
     public CameraFade cameraFade;
@@ -70,6 +72,7 @@ public class WaterManager : MonoBehaviour
     {
         thirstMeterUIText.text = "Thirst Level: 0 / 100";
         float deathtimer = 7f;
+        riddleinput.exitRiddle();
         deathPanel.SetActive(true);
         youDiedOfThirst.alpha = 100;
         cameraFade.Fade(.1f);
@@ -91,6 +94,7 @@ public class WaterManager : MonoBehaviour
         //Must reset movement speed as well or else Player will continue to walk slowly backwards!
         playerLocomotion.movementSpeed = 5;
         playerLocomotion.sprintSpeed = 7;
+        inputManager.OnEnable();
     }
 
     void OnTriggerEnter(Collider other)
