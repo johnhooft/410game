@@ -11,6 +11,6 @@ public class CanonGameManager : MonoBehaviour
     private void Update() 
     {
         targetsHit = StaticLevel2Info.targetsHit;
-        if (targetsHit == numTargets) {Destroy(door);}
+        if (targetsHit == numTargets) {Destroy(door);} 
     }
 }

@@ -9,6 +9,7 @@ public class Player_Animation : MonoBehaviour
 
     public Animator animator;
     PlayerLocomotion playerLocomotion;
+    WaterManager waterManager;
     int horizontal, vertical;
 
     
@@ -21,6 +22,16 @@ public class Player_Animation : MonoBehaviour
         vertical = Animator.StringToHash("y");
 
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        waterManager = GetComponent<WaterManager>();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Water") && !animator.GetBool("IsDrinkingInProgress"))
+        {
+            animator.SetBool("IsDrinking", true);
+            animator.SetBool("IsDrinkingInProgress", true);
+        }
     }
 
     // Update is called once per frame
@@ -88,6 +99,16 @@ public class Player_Animation : MonoBehaviour
 
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
         animator.SetFloat(vertical, snappedVertical, 0.1f, Time.deltaTime);
+
+        if (animator.GetBool("IsDrinkingInProgress"))
+        {
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName("Arm_Dog|Drink") && stateInfo.normalizedTime >= 1f)
+            {
+                animator.SetBool("IsDrinkingInProgress", false);
+                animator.SetBool("IsDrinking", false);
+            }
+        }
 
         // bool isWalking = inputManager.horizontalInput != 0 || inputManager.verticalInput != 0;
 
