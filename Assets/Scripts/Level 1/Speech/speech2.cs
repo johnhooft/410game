@@ -34,6 +34,7 @@ public class speech2 : MonoBehaviour
         {
             speechPanel.SetActive(true);
             text2.SetActive(true);
+            bridge.SetActive(false);
             StartCoroutine("WaitForSec");
         }
 
@@ -50,7 +51,6 @@ public class speech2 : MonoBehaviour
         //else if( bone.activeSelf == false)
         else if(StaticPlayerInfo.allBonesCollected)
         {
-        bridge.SetActive(false);
         text2.SetActive(false);
         }
 
