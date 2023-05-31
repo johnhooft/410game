@@ -11,7 +11,6 @@ public class Player_Animation : MonoBehaviour
     PlayerLocomotion playerLocomotion;
     WaterManager waterManager;
     int horizontal, vertical;
-
     
     // Start is called before the first frame update
     void Awake()
@@ -27,7 +26,7 @@ public class Player_Animation : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Water") && !animator.GetBool("IsDrinkingInProgress"))
+        if (other.gameObject.CompareTag("Water") && !animator.GetBool("IsDrinkingInProgress"))  // The dog drinks when collider tags are "Water"
         {
             animator.SetBool("IsDrinking", true);
             animator.SetBool("IsDrinkingInProgress", true);
@@ -49,7 +48,6 @@ public class Player_Animation : MonoBehaviour
         animator.SetBool("IsSprinting", playerLocomotion.isSprinting);
         print(playerLocomotion.isSprinting);
 
-        // add if the player is sprinting
         #region Snapped Horizontal
         if (horizontalMovement > 0 && horizontalMovement < 0.55f)
         {
@@ -97,13 +95,16 @@ public class Player_Animation : MonoBehaviour
 
         #endregion
 
+        bool moving = snappedVertical != 0 || snappedHorizontal != 0; // will detect if dog is in motion so the sprint animation doesn't play when idle.
+        animator.SetBool("InMotion", moving); // sets the corresponding boolean value
+
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
         animator.SetFloat(vertical, snappedVertical, 0.1f, Time.deltaTime);
 
         if (animator.GetBool("IsDrinkingInProgress"))
         {
             AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName("Arm_Dog|Drink") && stateInfo.normalizedTime >= 1f)
+            if (stateInfo.IsName("Arm_Dog|Drink") && stateInfo.normalizedTime >= 1f)  // drinking is done before we return to the blend tree (movement animations).
             {
                 animator.SetBool("IsDrinkingInProgress", false);
                 animator.SetBool("IsDrinking", false);
