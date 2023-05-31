@@ -37,9 +37,9 @@ public class input : MonoBehaviour
         riddles[0] = "What goes up but never comes down?";
         riddles[1] = "What has to be broken before you can use it?";
         riddles[2] = "The more you take, the more you leave behind. What are they?";
-        answers[0] = "Your Age";
-        answers[1] = "An egg";
-        answers[2] = "Footsteps";
+        answers[0] = "your age";
+        answers[1] = "an egg";
+        answers[2] = "footsteps";
         
     }
 
@@ -59,7 +59,7 @@ public class input : MonoBehaviour
                     //if(flag2 == 0)
                     riddle = Riddle();
                     textElement.text= riddles[riddle];
-                    textElement2.text = "To pass you must first solve one of my riddles";
+                    textElement2.text = "To pass, you must first solve this riddle:";
                     Text.SetActive(true);
                     Text2.SetActive(true);
 
@@ -81,7 +81,7 @@ public class input : MonoBehaviour
         inputs  = s;
         if(inputs.ToLower() == answers[riddle].ToLower())
         {
-            textElement.text = "Congrats you have solved my riddle, you may pass" ;
+            textElement.text = "Congrats!! You have solved my riddle! You may pass..." ;
             //(player.GetComponent(scr) as MonoBehaviour).enabled = true;
             dogstopper.SetActive(false);
             //Destroy(Text2);
@@ -97,7 +97,7 @@ public class input : MonoBehaviour
         }
         else
         {
-            Faliure_Text.text = "Try again";
+            Faliure_Text.text = "Try again...";
             StartCoroutine(WaitForSec3());
         }
         

@@ -7,6 +7,6 @@ public class MiniGame1 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) {SceneManager.LoadScene(1);}
+        if (other.gameObject.CompareTag("Player")) { SceneManager.LoadScene(1); }
     }
 }

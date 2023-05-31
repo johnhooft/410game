@@ -7,6 +7,6 @@ public class Level2Load : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) {SceneManager.LoadScene(2);}
+        if (other.gameObject.CompareTag("Player")) { SceneManager.LoadScene(2); }
     }
 }
