@@ -84,7 +84,7 @@ public class WaterManager : MonoBehaviour
         //print on UI that you died of thirst;
 
         //reset thirst and incanyon bool
-        thirst = 100;
+        thirst = 10;
         inCanyon = false;
         dead = false;
         deathPanel.SetActive(false);
