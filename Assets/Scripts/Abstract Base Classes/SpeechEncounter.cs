@@ -22,12 +22,14 @@ public abstract class SpeechEncounter : MonoBehaviour
         {
             speechPanel.SetActive(true);
             text.SetActive(true);
+            if (text2.activeSelf) { text2.SetActive(false); } // Prevents overlapping text
             StartCoroutine("WaitForSec");
         }
         else if (player.gameObject.tag == "Player" && !SpeechConditionMet())
         {
             speechPanel.SetActive(true);
             text2.SetActive(true);
+            if (text.activeSelf) { text.SetActive(false); } // Prevents overlapping text
             StartCoroutine("WaitForSec");
         }
     }
