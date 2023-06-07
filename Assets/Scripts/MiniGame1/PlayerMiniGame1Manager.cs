@@ -18,6 +18,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
         health = 3;
         SetHealthText();
         SetCountText();
+        StaticPlayerInfo.InitMiniGame1 = false;
     }
 
     void SetHealthText()

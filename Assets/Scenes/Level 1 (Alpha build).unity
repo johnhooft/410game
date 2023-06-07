@@ -6977,6 +6977,7 @@ GameObject:
   - component: {fileID: 838804867}
   - component: {fileID: 838804866}
   - component: {fileID: 838804874}
+  - component: {fileID: 838804875}
   - component: {fileID: 838804865}
   - component: {fileID: 838804864}
   - component: {fileID: 838804863}
@@ -7239,6 +7240,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 944677542}
+  speechPanel: {fileID: 710400058}
+--- !u!114 &838804875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838804859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61025c248c6446e08c54ebc6151c61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   speechPanel: {fileID: 710400058}
 --- !u!1001 &842123395
 PrefabInstance:

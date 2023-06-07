@@ -1855,6 +1855,7 @@ GameObject:
   - component: {fileID: 1728208262}
   - component: {fileID: 1728208263}
   - component: {fileID: 1728208264}
+  - component: {fileID: 1728208265}
   m_Layer: 6
   m_Name: 'Player '
   m_TagString: Untagged
@@ -2057,6 +2058,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1055081811}
+  speechPanel: {fileID: 1770905412}
+--- !u!114 &1728208265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728208252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b87c5f56dc3764e4397ad47e82abb8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   speechPanel: {fileID: 1770905412}
 --- !u!1001 &1735080940
 PrefabInstance:
