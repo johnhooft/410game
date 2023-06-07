@@ -13,7 +13,7 @@ public class IntroUI : MonoBehaviour
 
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(13);
         speechPanel.SetActive(false);
         text.SetActive(false);
     }
