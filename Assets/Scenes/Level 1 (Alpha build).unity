@@ -14046,9 +14046,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 859696110}
-  bridge: {fileID: 304126709}
   text2: {fileID: 754534390}
   speechPanel: {fileID: 190208796}
+  bridge: {fileID: 304126709}
 --- !u!1001 &1669313069
 PrefabInstance:
   m_ObjectHideFlags: 0
