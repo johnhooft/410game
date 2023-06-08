@@ -27,6 +27,9 @@ public class InputManager : MonoBehaviour
     public bool jump_Input;
     public float shiftInput;
 
+    //public bool pauseInput;
+    public bool paused = false;
+
     private void Awake()
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
@@ -62,6 +65,7 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleJumpInput();
         HandleSprintInput();
+        HandlePauseInput();
     }
 
     private void HandleSprintInput()
@@ -87,6 +91,18 @@ public class InputManager : MonoBehaviour
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
 
+    }
+
+    private void HandlePauseInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && !paused)
+        {
+            Time.timeScale = 0; paused = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Return) && paused)
+        {
+            Time.timeScale = 1; paused = false;
+        }
     }
 
 }
