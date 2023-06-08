@@ -8,9 +8,12 @@ public class ObsticleManager : MonoBehaviour
 
     public float moveSpeed = 2f;
     public Vector3 moveDirection = Vector3.forward;
+    public float lifespan;
+
     private void Awake() 
     {
         rigidBody = GetComponent<Rigidbody>();
+         Destroy(gameObject, lifespan);
     }
     private void Update() 
     {
