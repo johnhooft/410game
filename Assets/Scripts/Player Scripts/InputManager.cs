@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /*
 Description:
@@ -28,17 +27,14 @@ public class InputManager : MonoBehaviour
     public bool jump_Input;
     public float shiftInput;
 
-    public GameObject pauseMenu;
+    //public bool pauseInput;
     public bool paused = false;
-
-    void Start() { pauseMenu.SetActive(false); }
 
     private void Awake()
     {
         playerLocomotion = GetComponent<PlayerLocomotion>();
         playerAnimation = GetComponent<Player_Animation>();
     }
-
     public void OnEnable()
     {
         if (playerControls == null)
@@ -99,25 +95,13 @@ public class InputManager : MonoBehaviour
 
     private void HandlePauseInput()
     {
-        if ((Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)) && !paused)
+        if (Input.GetKeyDown(KeyCode.P) && !paused)
         {
-            Time.timeScale = 0;
-            paused = true;
-            pauseMenu.SetActive(true);
+            Time.timeScale = 0; paused = true;
         }
-        else if (paused)
+        else if (Input.GetKeyDown(KeyCode.P) && paused)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
-            {
-                Time.timeScale = 1;
-                paused = false;
-                pauseMenu.SetActive(false);
-            }
-            else if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Time.timeScale = 1;
-                SceneManager.LoadScene(5);
-            }
+            Time.timeScale = 1; paused = false;
         }
     }
 
