@@ -95,11 +95,11 @@ public class InputManager : MonoBehaviour
 
     private void HandlePauseInput()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !paused)
+        if (Input.GetKeyDown(KeyCode.P) && !paused)
         {
             Time.timeScale = 0; paused = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Return) && paused)
+        else if (Input.GetKeyDown(KeyCode.P) && paused)
         {
             Time.timeScale = 1; paused = false;
         }
