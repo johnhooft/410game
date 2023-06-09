@@ -26,6 +26,8 @@ public class input : MonoBehaviour
     private int flag2;
     private int Riddle_solved;
 
+    public AudioSource audioSource;
+    public AudioClip puzzleSound;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +90,7 @@ public class input : MonoBehaviour
             //Destroy(inputfield);
             Text2.SetActive(false);
             inputfield.SetActive(false);
+            audioSource.PlayOneShot(puzzleSound);
             inputManager.OnEnable();
             StartCoroutine(WaitForSec2());
         }
