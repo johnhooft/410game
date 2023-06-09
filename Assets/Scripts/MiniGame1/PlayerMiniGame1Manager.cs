@@ -14,11 +14,13 @@ public class PlayerMiniGame1Manager : MonoBehaviour
 
     private void Start() 
     {
+        StaticPlayerInfo.InLevel1 = false;
+        StaticPlayerInfo.InMiniGame1 = true;
         count = 0;
         health = 3;
         SetHealthText();
         SetCountText();
-        StaticPlayerInfo.InitMiniGame1 = false;
+        //StaticPlayerInfo.InitMiniGame1 = false;
     }
 
     void SetHealthText()

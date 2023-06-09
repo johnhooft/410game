@@ -10,6 +10,8 @@ public class Level1Manager : MonoBehaviour
     
     void Start()
     {
+        StaticPlayerInfo.InLevel1 = true;
+        StaticPlayerInfo.InMiniGame1 = false;
         StaticPlayerInfo.redBones = GameObject.FindGameObjectsWithTag("PickUp_Key");
         StaticPlayerInfo.redBoneMaxCount = StaticPlayerInfo.redBones.Length;
         if (!StaticPlayerInfo.MiniGame1Completion) {
@@ -18,7 +20,7 @@ public class Level1Manager : MonoBehaviour
         }
         RemoveInactiveKeys();
         SetKeyText();
-        StaticPlayerInfo.InitLevel1 = false;
+        //StaticPlayerInfo.InitLevel1 = false;
     }
 
     void Update()
