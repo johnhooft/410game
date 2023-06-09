@@ -16,7 +16,5 @@ public class IntroUI : MonoBehaviour
         yield return new WaitForSeconds(13);
         speechPanel.SetActive(false);
         text.SetActive(false);
-        if (StaticPlayerInfo.InLevel1) { StaticPlayerInfo.InitLevel1 = false; }
-        else if (StaticPlayerInfo.InMiniGame1) { StaticPlayerInfo.InitMiniGame1 = false; }
     }
 }
