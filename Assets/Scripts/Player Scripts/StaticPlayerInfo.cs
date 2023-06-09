@@ -24,6 +24,4 @@ public class StaticPlayerInfo : MonoBehaviour
 
     static public bool cowboyhat = false;
 
-    // Initial title screen load
-    static public bool titlescreen = false;
 }

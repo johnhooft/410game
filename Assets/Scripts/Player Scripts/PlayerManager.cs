@@ -30,11 +30,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake() // get various components from object that it is attached too.
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !StaticPlayerInfo.titlescreen) 
-        {
-            SceneManager.LoadScene(5); 
-            StaticPlayerInfo.titlescreen = true;
-        }
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
         Cursor.visible = false; // Hide the cursor
         inputManager = GetComponent<InputManager>();
