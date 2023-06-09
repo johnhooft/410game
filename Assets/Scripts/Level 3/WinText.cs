@@ -34,6 +34,6 @@ public class WinText : MonoBehaviour
     IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(30);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(5);
     }
 }

@@ -17,8 +17,6 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         startButton = GameObject.Find("StartUIButton").GetComponent<Button>();
         startButton.onClick.AddListener(() => GoToStart());
 
