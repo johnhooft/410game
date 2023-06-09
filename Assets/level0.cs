@@ -20,7 +20,7 @@ public class level0 : MonoBehaviour
     {
         if(player.position.y <= 3)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
 
         }
     }

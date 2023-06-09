@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1940115118}
-  m_IndirectSpecularColor: {r: 0.112717696, g: 0.2815233, b: 0.7086749, a: 1}
+  m_IndirectSpecularColor: {r: 0.11263833, g: 0.28144062, b: 0.7086885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1448,7 +1448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 319.72, y: -171.66159}
+  m_AnchoredPosition: {x: 319.72, y: -226}
   m_SizeDelta: {x: 666.5114, y: 70.2893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157061834
@@ -5668,8 +5668,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 403.36566, y: -185.33507}
-  m_SizeDelta: {x: 723.1981, y: 208.4098}
+  m_AnchoredPosition: {x: 406.50574, y: -208.36252}
+  m_SizeDelta: {x: 729.1793, y: 252.2716}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710400060
 MonoBehaviour:
@@ -7010,6 +7010,7 @@ MonoBehaviour:
   horizontalInput: 0
   jump_Input: 0
   shiftInput: 0
+  paused: 0
 --- !u!136 &838804861
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7997,8 +7998,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You've got to find some way out of these strange woods... Try asking the
-    Doberman at the bridge up ahead for some directions!
+  m_text: Looks like the strange hole sent us to some sort of woods.You've got to
+    find some way out of these strange woods... Try asking the Doberman at the bridge
+    up ahead for some directions!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8025,8 +8027,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

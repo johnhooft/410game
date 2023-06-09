@@ -37,7 +37,7 @@ public class PlayerMiniGame1Manager : MonoBehaviour
         {
             StaticPlayerInfo.MiniGame1Completion = true;
             StaticPlayerInfo.portalReturn = true;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 

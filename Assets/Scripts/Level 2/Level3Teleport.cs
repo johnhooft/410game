@@ -7,6 +7,6 @@ public class Level3Teleport : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) {SceneManager.LoadScene(3);}
+        if (other.gameObject.CompareTag("Player")) {SceneManager.LoadScene(4);}
     }
 }

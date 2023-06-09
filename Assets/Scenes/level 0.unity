@@ -1045,6 +1045,7 @@ MonoBehaviour:
   horizontalInput: 0
   jump_Input: 0
   shiftInput: 0
+  paused: 0
 --- !u!114 &405334489
 MonoBehaviour:
   m_ObjectHideFlags: 0
