@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class level0 : MonoBehaviour
+public class Level0Manager : MonoBehaviour
 {
     public Transform player;
-    public GameObject bone;
+    /*public GameObject bone;
     
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(WaitForSec());
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -25,11 +25,13 @@ public class level0 : MonoBehaviour
         }
     }
 
+/*
     IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(10);
         bone.SetActive(false);
 
     }
+*/
 }
  
