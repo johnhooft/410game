@@ -15,6 +15,7 @@ TagManager:
   - lvl3Border
   - level3Entrance
   - Canyon Exit
+  - MenuButton
   layers:
   - Default
   - TransparentFX

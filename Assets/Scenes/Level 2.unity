@@ -3733,6 +3733,7 @@ MonoBehaviour:
   horizontalInput: 0
   jump_Input: 0
   shiftInput: 0
+  paused: 0
 --- !u!114 &683036294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10424,7 +10425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1847881877}
   m_Layer: 0
-  m_Name: Enviornment
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
